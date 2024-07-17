@@ -1,21 +1,16 @@
-import login from ",/Login";
-
 export default function Navegacion() {
   return (
     <>
-    <header className="navegacion">
+      <header className="navegacion">
         <nav className="listaNav">
-            <a href="#">Ropa Caballero</a>
-            <a href="#">Ropa Dama</a>
-            <a href="#">Accesorios</a>
-            <a href="#">Tecnologia</a>
-            <a href="#">login.html</a>
-            <Login/>
+          <h3>Ropa Caballero</h3>
+          <h3>Ropa Dama</h3>
+          <h3>Accesorios</h3>
+          <h3>Tecnologia</h3>
         </nav>
-    
+
         <button className="menuBoton">&#9776;</button>
-    
-    </header>
+      </header>
     </>
-  )
+  );
 }

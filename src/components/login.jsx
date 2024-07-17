@@ -1,7 +1,6 @@
-import { useEffect, useState} from "react";
- 
+
 export default function login() {
-    const [activo, setactivo]= useState(false);
+  const [activo, setactivo] = useState(false);
 
   return (
     <>
@@ -16,25 +15,18 @@ export default function login() {
       {activo && (
         <div className="container-login">
           setactivo(true);
-          <div className="modal" onClick={() => setactivo(false)}/>
-            <div className="formulario"/>
-            <h2>Iniciar sesion</h2>
-            <form>
-                <input type="email" placeholder="Ingresa tu correo"/> 
-                <input type="password" placeholder="Contraseña"/>
-                <button className="botonC" type="button" value="iniciar sesion"> Iniciar sesion</button>
-                <a href=""></a>
-
-
-
-
- 
-            </form>
-
-
-        
-
-
+          <div className="modal" onClick={() => setactivo(false)} />
+          <div className="formulario" />
+          <h2>Iniciar sesion</h2>
+          <form>
+            <input type="email" placeholder="Ingresa tu correo o telefono" />
+            <input type="password" placeholder="Contraseña" />
+            <button className="boton" type="button" value="iniciar sesion">
+              {" "}
+              Iniciar sesion
+            </button>
+            <a href=""></a>
+          </form>
         </div>
       )}
     </>
