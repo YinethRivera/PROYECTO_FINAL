@@ -1,1 +1,15 @@
+.nombre{
+    background-color: #7FFFD4;
+    text-align: center;
 
+}
+
+.texto{
+    text-align: center;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color:black;
+    background-color: #E0FFFF;
+  }
+}

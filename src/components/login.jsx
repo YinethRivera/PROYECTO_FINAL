@@ -1,12 +1,15 @@
+import { useEffect, useState } from "react"
+import { Link, useNavigate } from 'react-router-dom'
 
-export default function login() {
+export default function Login() {
   const [activo, setactivo] = useState(false);
-
+    
+    
   return (
     <>
       <button
         className="button"
-        onClick={(e) => {
+        onClick={() => {
           setactivo(true);
         }}
       >
@@ -14,7 +17,7 @@ export default function login() {
       </button>
       {activo && (
         <div className="container-login">
-          setactivo(true);
+          {/* setactivo(true); */}
           <div className="modal" onClick={() => setactivo(false)} />
           <div className="formulario" />
           <h2>Iniciar sesion</h2>

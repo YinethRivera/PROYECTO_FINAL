@@ -1,23 +1,47 @@
 import styles from "./show_products.module.css";
-import React from "react";
-// import "./Product.css";
+import React, { useState } from "react";
 
-const Product = ({ id, image, title, description, price, rating }) => {
+const Product = ({
+  id,
+  image,
+  title,
+  description,
+  price,
+  rating,
+  setnum,
+  num,
+}) => {
+  const [first, setfirst] = useState(true);
   return (
     <div className={styles.product_card}>
-      <img src={image} alt="" />
+      <img src={image} alt={title} />
       <div className={styles.product_data}>
         <h3>{title}</h3>
-        <p>{description}</p>
+        <div className={styles.description}>
+          <p>{description}</p>
+        </div>
         <div className={styles.product_numbers}>
-          <p className={price}>
+          <p className={styles.price}>
             ${price}{" "}
-            <span className={styles.price_before}>{price + price / 2}</span>{" "}
+            <span className={styles.price_before}>
+              ${(price * 1.5).toFixed(2)}
+            </span>
           </p>
-          <p className={rating}>{rating?.rate | ""}</p>
+          <div className={styles.rating}>{rating?.rate || ""}</div>
         </div>
       </div>
-      <button>Comprar</button>
+      {first && (
+        <button
+          onClick={() => {
+            setfirst(false);
+            setnum(num + 1);
+            console.log(num);
+          }}
+          className={styles.btn_Comprar}
+        >
+          Comprar
+        </button>
+      )}
     </div>
   );
 };
