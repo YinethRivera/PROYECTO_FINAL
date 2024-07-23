@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useFetch } from "../Get_products";
-import Product from "./Products";
+import { useFetch } from "../Productos/Get_products";
+import Product from "../Productos/Products";
 import styles from "./show_products.module.css";
 
 export default function Show_products() {

@@ -1,5 +1,5 @@
-import Login from "./Login";
-import img from '../assets/logo.png';
+import Login from "../Navegacion/navegacion.jsx";
+import img from '../Login/Login.jsx';
 import './navegacion.css'
 
 export default function Navegacion() {

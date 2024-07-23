@@ -1,4 +1,4 @@
-import styles from "./show_products.module.css";
+import styles from "../ShowProducts/show_products.module.css";
 import React, { useState } from "react";
 
 const Product = ({
