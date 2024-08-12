@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Button from "../components/Button/index.jsx";
 import Menu from "../components/Menu/Header";
 import Product from "../components/Product";
@@ -55,6 +54,7 @@ export default function App() {
             <Product key={index} {...product} />
           ))}
         </div>
+       
       </div>
     </>
   );

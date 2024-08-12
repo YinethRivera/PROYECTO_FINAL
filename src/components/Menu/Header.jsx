@@ -39,17 +39,28 @@ function Header() {
           {mostrarFormulario && (
             <div className="formulario">
               <form>
-                <div className="campo">
-                  <label htmlFor="usuario">User</label>
-                  <input type="text" id="usuario" name="usuario" />
+                <div className="user">
+                  <label htmlFor="usuario">Usuario: </label>
+                  <input
+                    type="text"
+                    id="usuario"
+                    name="usuario"
+                    placeholder="Ingresa tu Email"
+                  />
                 </div>
 
-                <div className="campo">
-                  <label htmlFor="contrasena">Password</label>
-                  <input type="password" id="contrasena" name="contrasena" />
+                <div className="user">
+                  <label htmlFor="contrasena">Contraseña: </label>
+                  <input
+                    type="password"
+                    id="contrasena"
+                    name="contraseña"
+                    placeholder="Ingresa tu contraseña"
+                  />
                 </div>
-
-                <button type="submit">Login</button>
+                <button type="submit">
+                  Ingresar
+                </button>
               </form>
             </div>
           )}
