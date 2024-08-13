@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 import Img from "../../assets/Logo.png";
 import { Link } from "react-scroll";
+import CartIcon from "../CartIcons/CartIcon";
 
 function Header() {
   const [activo, setactivo] = useState(false);
@@ -29,7 +30,6 @@ function Header() {
             <Link to="womensclothing" smooth={true} duration={200}>
               Women\'s Clothing
             </Link>
-
           </nav>
 
           {mostrarFormulario && (
@@ -54,9 +54,7 @@ function Header() {
                     placeholder="Ingresa tu contraseña"
                   />
                 </div>
-                <button type="submit">
-                  Ingresar
-                </button>
+                <button type="submit">Ingresar</button>
               </form>
             </div>
           )}
@@ -66,6 +64,10 @@ function Header() {
           {" "}
           <button type="submit">Login</button>
         </button>
+
+        <div className="carrito">
+          <CartIcon />
+        </div>
 
         {
           <button className="class-menu-btn" id="menu-btn">

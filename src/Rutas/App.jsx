@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      <Provider>
+      
       <Menu />
       <div className="category-container" name="jewelery">
         <h1>jewelery</h1>
@@ -58,7 +58,7 @@ export default function App() {
         </div>
        
       </div>
-      </Provider>
+      
     </>
   );
 }
