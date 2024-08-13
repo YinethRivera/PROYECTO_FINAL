@@ -1,4 +1,4 @@
-html,
+
 body {
   background-color: #000000; 
   margin: 0;
@@ -105,17 +105,6 @@ body {
   color: #fff; 
 }
 
-.b-comprar {
-  display: flex;
-  color: #fff; 
-  justify-content: center;
-}
-
-.portada {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 .product-card button:hover {
   background-color: #8B0000; 
@@ -152,27 +141,5 @@ body {
   text-decoration: line-through;
 }
 
-.rating {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-  background-color: #8B0000; 
-  color: #ffffff;
-  border-radius: 50%;
-  width: 50%;
-  height: 40px;
-  margin-right: 10px;
-}
 
-.product-data .rating {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-  background-color: #000000; 
-  color: #fff;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-}
+

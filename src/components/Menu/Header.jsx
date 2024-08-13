@@ -29,11 +29,7 @@ function Header() {
             <Link to="womensclothing" smooth={true} duration={200}>
               Women\'s Clothing
             </Link>
-            {activo && (
-              <div className="">
-                <h1>hola</h1>
-              </div>
-            )}
+
           </nav>
 
           {mostrarFormulario && (

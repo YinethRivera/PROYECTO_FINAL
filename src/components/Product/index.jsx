@@ -1,7 +1,7 @@
 import React from "react";
 import "./Product.css";
 
-const Product = ({ image, title, description, price, rating }) => {
+const Product = ({ image, title, description, price, rating, link }) => {
   return (
     <div className="product-card">
       <div className="portada">
@@ -13,11 +13,14 @@ const Product = ({ image, title, description, price, rating }) => {
       </div>
       <div className="product-numbers">
         <p className="price">
-          ${price} <span className="price-before">{(price + price / 2).toFixed(2)}</span>{" "}
+          ${price}{" "}
+          <span className="price-before">{(price + price / 2).toFixed(2)}</span>{" "}
         </p>
-        <p className="rating">{rating?.rate | ""}</p>
+        <p className="rating">{rating?.rate || ""}</p>
       </div>
-      <button className="b-comprar">Comprar</button>
+      <a href={link} className="b-comprar">
+        Comprar
+      </a>
     </div>
   );
 };
