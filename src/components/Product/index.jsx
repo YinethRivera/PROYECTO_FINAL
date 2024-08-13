@@ -13,7 +13,7 @@ const Product = ({ image, title, description, price, rating }) => {
       </div>
       <div className="product-numbers">
         <p className="price">
-          ${price} <span className="price-before">{price + price / 2}</span>{" "}
+          ${price} <span className="price-before">{(price + price / 2).toFixed(2)}</span>{" "}
         </p>
         <p className="rating">{rating?.rate | ""}</p>
       </div>
