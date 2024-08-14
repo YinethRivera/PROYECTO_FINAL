@@ -1,4 +1,37 @@
-.cart{
-    font-size: 7.0rem;
-    
+/* CartIcon.module.css */
+.iconWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cartIcon {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 0 6px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cartDropdown {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #3219c0;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 50;
+  width: 30rem;
+  max-height: 25rem;
+  overflow-y: auto;
 }

@@ -1,55 +1,24 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import Carrito from "../Carrito/Carrito";
+import styles from "./CartIcon.module.css";
 
 const CartIcon = () => {
   const { cart } = useContext(CartContext);
   const [showCart, setShowCart] = useState(false);
 
-  // Contar la cantidad total de productos en el carrito
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <div style={{ position: "relative", display: "inline-block" }}>
+    <div className={styles.iconWrapper}>
       <i
-        className="bi bi-cart4"
-        style={{ fontSize: "40px", cursor: "pointer" }}
+        className={`bi bi-cart4 ${styles.cartIcon}`}
+        aria-label="Cart"
         onClick={() => setShowCart(!showCart)}
       ></i>
-      {totalItems > 0 && (
-        <span
-          style={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            background: "red",
-            color: "white",
-            borderRadius: "50%",
-            padding: "0 6px",
-            fontSize: "14px",
-            fontWeight: "bold",
-          }}
-        >
-          {totalItems}
-        </span>
-      )}
+      {totalItems > 0 && <span className={styles.badge}>{totalItems}</span>}
       {showCart && (
-        <div
-          style={{
-            position: "fixed",
-            top: "50%", 
-            left: "50%", // Centramos horizontalmente
-            transform: "translate(-50%, -50%)", 
-            backgroundColor: "#fff",
-            border: "1px solid #ddd",
-            boxShadow: "0px 4px 8px rgba(0,0,0,0.1)",
-            padding: "10px",
-            zIndex: 1000,
-            width: "300px", // Ajusta el ancho según tus necesidades
-            maxHeight: "400px", // Limita la altura del carrito
-            overflowY: "auto", // Agrega barra de desplazamiento si el contenido es grande
-          }}
-        >
+        <div className={styles.cartDropdown}>
           <Carrito />
         </div>
       )}
