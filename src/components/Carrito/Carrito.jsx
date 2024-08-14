@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import "./Carrito.css"
 
 const Carrito = () => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
@@ -13,13 +14,10 @@ const Carrito = () => {
       ) : (
         <div>
           {cart.map((product, idx) => (
-            <div
+            <div className="carritoCo"
               key={idx}
               style={{
-                border: "1px solid",
-                background: "#f0f0f0",
-                marginBottom: "10px",
-                padding: "10px",
+
               }}
             >
               <h3>{product.name}</h3>

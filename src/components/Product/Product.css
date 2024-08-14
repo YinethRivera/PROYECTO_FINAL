@@ -1,5 +1,5 @@
 body {
-  background-color: #1a1a1a; /* Gris oscuro para el fondo de la página */
+  background-color: rgb(144, 162, 212); /* Gris oscuro para el fondo de la página */
   margin: 0;
   padding: 0;
 }
@@ -8,7 +8,7 @@ body {
   display: flex;
   margin-left: 170px;
   justify-content: center;
-  color: #ffa500; /* Naranja para el título */
+  color: #ffffff; /* Blanco para el título */
   padding: 20px;
   width: 94.7%;
   z-index: 1;
@@ -17,14 +17,14 @@ body {
 
 .search {
   display: flex;
-  background-color: #4682b4; /* Azul acero para el fondo de la barra de búsqueda */
-  border: 2px solid #ff6347; /* Tomate para el borde */
+  background-color: #4169e1; /* Azul real para el fondo de la barra de búsqueda */
+  border: 2px solid #4682b4; /* Azul acero para el borde */
   flex-direction: row;
   align-items: baseline;
 }
 
 .titulos {
-  color: #32cd32; /* Verde lima para los títulos */
+  color: #ffffff; /* Blanco para los títulos */
   text-align: center;
 }
 
@@ -34,7 +34,7 @@ body {
   flex-direction: row;
   overflow-x: scroll;
   width: 100%;
-  background-color: #f5f5f5; /* Blanco humo para el fondo */
+  background-color: #4682b4; /* Azul acero para el fondo */
 }
 
 .imagenes1,
@@ -49,7 +49,7 @@ body {
 
 .product-card {
   display: flex;
-  background-color: #2f4f4f; /* Verde grisáceo oscuro para el fondo de las tarjetas de productos */
+  background-color: #1e3a8a; /* Azul oscuro para el fondo de las tarjetas de productos */
   flex-direction: column;
   width: 200px;
   min-width: 200px;
@@ -58,9 +58,9 @@ body {
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ffd700; /* Dorado para el borde */
+  border: 1px solid #87ceeb; /* Azul cielo claro para el borde */
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.5); /* Sombra dorada */
+  box-shadow: 0 2px 4px rgba(135, 206, 235, 0.5); /* Sombra azul cielo claro */
   color: #ffffff; /* Texto blanco */
   transition: all 0.3s;
   margin-bottom: 40px;
@@ -74,11 +74,11 @@ body {
   border-radius: 8px;
   margin-bottom: 19px;
   margin-top: 10px;
-  background-color: #ff4500; /* Naranja rojo para el fondo de la imagen */
+  background-color: #4682b4; /* Azul acero para el fondo de la imagen */
 }
 
 .product-card:hover {
-  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.7); /* Sombra dorada más intensa */
+  box-shadow: 0 4px 8px rgba(135, 206, 235, 0.7); /* Sombra azul cielo claro más intensa */
   transform: scale(1.05);
 }
 
@@ -96,18 +96,18 @@ body {
 }
 
 .product-card button {
-  background-color: #ff6347; /* Tomate para el botón */
+  background-color: #4169e1; /* Azul real para el botón */
   width: 100%;
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 14px;
   cursor: pointer;
-  color: #fff; /* Texto blanco */
+  color: #ffffff; /* Texto blanco */
 }
 
 .product-card button:hover {
-  background-color: #4682b4; /* Azul acero al pasar el cursor */
+  background-color: #87ceeb; /* Azul cielo claro al pasar el cursor */
 }
 
 .product-data {
@@ -131,12 +131,12 @@ body {
 .product-numbers .price {
   font-size: 24px;
   font-weight: bold;
-  color: #ff4500; /* Naranja rojo para el precio */
+  color: #000000; /* Negro para el precio */
 }
 
 .product-numbers .price-before {
   font-size: 24px;
   font-weight: lighter;
-  color: #778899; /* Gris claro oscuro para el precio anterior */
+  color: #000000; /* Negro para el precio anterior */
   text-decoration: line-through;
 }
