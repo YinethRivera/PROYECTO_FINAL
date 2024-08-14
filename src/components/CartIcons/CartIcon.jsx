@@ -12,7 +12,7 @@ const CartIcon = () => {
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
       <i
-        className="bi bi-cart"
+        className="bi bi-cart4"
         style={{ fontSize: "24px", cursor: "pointer" }}
         onClick={() => setShowCart(!showCart)}
       ></i>
@@ -36,10 +36,10 @@ const CartIcon = () => {
       {showCart && (
         <div
           style={{
-            position: "fixed", // Cambia de absolute a fixed
-            top: "50%", // Centramos verticalmente
+            position: "fixed",
+            top: "50%", 
             left: "50%", // Centramos horizontalmente
-            transform: "translate(-50%, -50%)", // Ajustamos el contenedor al centro exacto
+            transform: "translate(-50%, -50%)", 
             backgroundColor: "#fff",
             border: "1px solid #ddd",
             boxShadow: "0px 4px 8px rgba(0,0,0,0.1)",
