@@ -1,0 +1,66 @@
+/* Login.css */
+
+.login-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 40px 30px 30px;
+  background: linear-gradient(135deg, #d0e6ff, #a3c9f9);
+  border-radius: 20px;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 24px; /* Tamaño de fuente grande para las etiquetas */
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  color: #2b4d80; /* Azul oscuro para el texto de las etiquetas */
+  text-shadow: 1px 1px 2px #5a9bd8; /* Sombra de azul claro para las etiquetas */
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #6aa9ff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #f0f8ff;
+}
+
+.submit-button {
+  padding: 14px;
+  font-size: 18px;
+  background-color: #3b7dd8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #336bb3;
+  transform: translateY(-3px);
+}
+
+.welcome-message {
+  font-size: 40px; /* Tamaño de fuente más grande */
+  color: #1a3a6d; /* Azul oscuro */
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #5a9bd8; /* Sombra de otro azul */
+}

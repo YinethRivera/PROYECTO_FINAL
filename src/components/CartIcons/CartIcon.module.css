@@ -7,18 +7,27 @@
 .cartIcon {
   font-size: 40px;
   cursor: pointer;
+  color: #1d4ed8; /* Azul oscuro para el icono */
+  transition: color 0.3s ease; /* Suave transición para el cambio de color */
+}
+
+.cartIcon:hover {
+  color: #2563eb; /* Azul más claro al pasar el ratón */
 }
 
 .badge {
   position: absolute;
-  top: 0;
-  right: 0;
-  background: red;
+  top: -10px;
+  right: -10px;
+  background: #ef4444; /* Rojo brillante para el badge */
   color: white;
   border-radius: 50%;
-  padding: 0 6px;
+  padding: 2px 8px;
   font-size: 14px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cartDropdown {
@@ -26,12 +35,32 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #3219c0;
-  border: 1px solid #ddd;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  background-color: #1e40af; /* Azul profundo para el dropdown */
+  border: 2px solid #1e3a8a; /* Borde azul más oscuro */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+  padding: 1.5rem;
   z-index: 50;
   width: 30rem;
   max-height: 25rem;
   overflow-y: auto;
+  border-radius: 8px; /* Bordes redondeados */
+  outline: 4px solid #2563eb; /* Recuadro azul claro */
+  outline-offset: -4px; /* Ajusta la posición del recuadro */
+}
+
+.cartDropdown::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cartDropdown::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.cartDropdown::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.cartDropdown::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

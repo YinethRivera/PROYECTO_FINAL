@@ -2,6 +2,7 @@ body {
   background-color: rgb(144, 162, 212); /* Gris oscuro para el fondo de la página */
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .titile-cabe {
@@ -28,13 +29,14 @@ body {
   text-align: center;
 }
 
+
 .category-items {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   overflow-x: scroll;
   width: 100%;
-  background-color: #4682b4; /* Azul acero para el fondo */
+  background-color: #d6e7f5; /* Azul acero para el fondo */
 }
 
 .imagenes1,

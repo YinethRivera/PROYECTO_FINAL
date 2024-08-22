@@ -22,10 +22,9 @@ export default function App() {
 
   return (
     <>
-      
       <Menu />
       <div className="category-container" name="jewelery">
-        <h1>jewelery</h1>
+        <h1 className="text-gradient">jewelery</h1>
         <div className="category-items">
           {jewelery.map((product, index) => (
             <Product key={index} {...product} />
@@ -33,7 +32,7 @@ export default function App() {
         </div>
       </div>
       <div className="category-container" name="electronics">
-        <h1>Electronics</h1>
+        <h1 className="text-gradient">Electronics</h1>
         <div className="category-items">
           {electronics.map((product, index) => (
             <Product key={index} {...product} />
@@ -41,7 +40,7 @@ export default function App() {
         </div>
       </div>
       <div className="category-container" name="mensclothing">
-        <h1>Men's Clothing</h1>
+        <h1 className="text-gradient">Men's Clothing</h1>
         <div className="category-items">
           {mensClothing.map((product, index) => (
             <Product key={index} {...product} />
@@ -49,16 +48,13 @@ export default function App() {
         </div>
       </div>
       <div className="category-container" name="womensclothing">
-        <h1>Women's Clothing</h1>
+        <h1 className="text-gradient">Women's Clothing</h1>
         <div className="category-items">
           {womensClothing.map((product, index) => (
             <Product key={index} {...product} />
-
           ))}
         </div>
-       
       </div>
-      
     </>
   );
 }

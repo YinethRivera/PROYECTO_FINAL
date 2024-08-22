@@ -3,6 +3,7 @@ import "./Header.css";
 import Img from "../../assets/Logo.png";
 import { Link } from "react-scroll";
 import CartIcon from "../CartIcons/CartIcon";
+import { Outlet, useNavigate } from "react-router-dom";
 
 function Header() {
   const [activo, setactivo] = useState(false);
@@ -11,7 +12,10 @@ function Header() {
   const toggleFormulario = () => {
     setMostrarFormulario(!mostrarFormulario);
   };
-
+const navigate = useNavigate()
+const ira = ()=>{
+  navigate('/login')
+}
   return (
     <div className="contenido">
       <header className="header">
@@ -32,33 +36,9 @@ function Header() {
             </Link>
           </nav>
 
-          {mostrarFormulario && (
-            <div className="formulario">
-              <form>
-                <div className="user">
-                  <label htmlFor="usuario">Usuario: </label>
-                  <input
-                    type="text"
-                    id="usuario"
-                    name="usuario"
-                    placeholder="Ingresa tu Email"
-                  />
-                </div>
-
-                <div className="user">
-                  <label htmlFor="contrasena">Contraseña: </label>
-                  <input
-                    type="password"
-                    id="contrasena"
-                    name="contraseña"
-                    placeholder="Ingresa tu contraseña"
-                  />
-                </div>
-                <button type="submit">Ingresar</button>
-              </form>
-            </div>
-          )}
+         
         </div>
+        <button onClick={ira}>Ingresar</button>
 
         <button className="btn-ini-sesion" onClick={toggleFormulario}>
           {" "}
@@ -75,6 +55,7 @@ function Header() {
           </button>
         }
       </header>
+      <Outlet />
     </div>
   );
 }
