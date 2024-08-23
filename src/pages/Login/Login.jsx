@@ -3,6 +3,7 @@ import "./Login.css";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 
@@ -23,22 +24,47 @@ export default function Login() {
 
   const RegisterUser = async (e) => {
     e.preventDefault();
+
     try {
-      await createUserWithEmailAndPassword(auth, Email, Password);
+      const UsuarioCredenciales = await createUserWithEmailAndPassword(
+        auth,
+        Email,
+        Password
+      );
+      const User = UsuarioCredenciales.user;
       await fetch("http://localhost:3000/usuarios", {
         method: "POST",
-        headers: { "Content-type": "aplication/json" },
-        body: JSON.stringify({ uid_usuario, correo_electronico: Email }),
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          uid_usuario: User.uid,
+          correo_electronico: Email,
+        }),
       });
     } catch (error) {
       console.log("error al crear cuenta", error);
     }
   };
+
+  const [registrar, setRegistrar] = useState(false);
+  const ingresarUser = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, Email, Password);
+      console.log("ingresaste a la cuenta");
+    } catch (error) {
+      console.log("error al ingresar a la cuenta", error);
+    }
+  };
+
   return (
     <div className="login-container">
       <div className="login-form">
         <h2 className="welcome-message">Bienvenido</h2>
-        <form onSubmit={(e) => RegisterUser(e)}>
+        <form
+          onSubmit={(e) => {
+            registrar ? RegisterUser(e) : ingresarUser(e);
+          }}
+        >
           <div className="input-group">
             <label htmlFor="usuario">Usuario: </label>
             <input
@@ -63,7 +89,11 @@ export default function Login() {
             />
           </div>
           <button type="submit" className="submit-button">
-            Enviar
+            Ingresar
+          </button>
+
+          <button type="button" onClick={() => setRegistrar(!registrar)}>
+            {registrar ? "ingresa" : "registrate"}
           </button>
         </form>
       </div>

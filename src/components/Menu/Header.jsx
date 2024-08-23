@@ -4,6 +4,8 @@ import Img from "../../assets/Logo.png";
 import { Link } from "react-scroll";
 import CartIcon from "../CartIcons/CartIcon";
 import { Outlet, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/credenciales";
 
 function Header() {
   const [activo, setactivo] = useState(false);
@@ -12,10 +14,18 @@ function Header() {
   const toggleFormulario = () => {
     setMostrarFormulario(!mostrarFormulario);
   };
-const navigate = useNavigate()
-const ira = ()=>{
-  navigate('/login')
-}
+  const CerrarSesion = async () => {
+    try {
+      await signOut(auth);
+      console.log("se cerro la sesion");
+    } catch (error) {
+      console.log("No se cerro la sesion");
+    }
+  };
+  const navigate = useNavigate();
+  const ira = () => {
+    navigate("/login");
+  };
   return (
     <div className="contenido">
       <header className="header">
@@ -35,15 +45,14 @@ const ira = ()=>{
               Women\'s Clothing
             </Link>
           </nav>
-
-         
         </div>
         <button onClick={ira}>Ingresar</button>
 
-        <button className="btn-ini-sesion" onClick={toggleFormulario}>
-          {" "}
-          <button type="submit">Login</button>
+        <button type="submit" className="btn-ini-sesion" onClick={toggleFormulario}>
+          {" "}Login
+          {/* <button ></button> */}
         </button>
+        <button onClick={CerrarSesion}>Cerrar Sesion</button>
 
         <div className="carrito">
           <CartIcon />

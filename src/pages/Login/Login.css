@@ -1,5 +1,4 @@
-/* Login.css */
-
+/* Estilos generales */
 .login-container {
   max-width: 500px;
   margin: 80px auto;
@@ -13,6 +12,7 @@
   justify-content: center;
 }
 
+/* Formulario */
 .login-form form {
   display: flex;
   flex-direction: column;
@@ -23,12 +23,12 @@
 }
 
 .input-group label {
-  font-size: 24px; /* Tamaño de fuente grande para las etiquetas */
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
   display: block;
-  color: #2b4d80; /* Azul oscuro para el texto de las etiquetas */
-  text-shadow: 1px 1px 2px #5a9bd8; /* Sombra de azul claro para las etiquetas */
+  color: #2b4d80;
+  text-shadow: 1px 1px 2px #5a9bd8;
 }
 
 .input-group input {
@@ -58,9 +58,50 @@
 }
 
 .welcome-message {
-  font-size: 40px; /* Tamaño de fuente más grande */
-  color: #1a3a6d; /* Azul oscuro */
+  font-size: 40px;
+  color: #1a3a6d;
   margin-bottom: 30px;
   text-align: center;
-  text-shadow: 2px 2px 4px #5a9bd8; /* Sombra de otro azul */
+  text-shadow: 2px 2px 4px #5a9bd8;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 30px 20px;
+    margin: 40px auto;
+  }
+
+  .input-group label {
+    font-size: 20px; /* Ajustar tamaño de fuente en pantallas medianas */
+  }
+
+  .submit-button {
+    padding: 12px;
+    font-size: 16px; /* Reducir tamaño de botón */
+  }
+
+  .welcome-message {
+    font-size: 32px; /* Ajustar tamaño de fuente del mensaje */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px 15px;
+    margin: 20px auto;
+  }
+
+  .input-group label {
+    font-size: 18px; /* Ajustar tamaño de fuente en pantallas pequeñas */
+  }
+
+  .submit-button {
+    padding: 10px;
+    font-size: 14px; /* Reducir tamaño de botón */
+  }
+
+  .welcome-message {
+    font-size: 28px; /* Ajustar tamaño de fuente del mensaje */
+  }
 }
