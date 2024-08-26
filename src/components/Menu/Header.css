@@ -1,12 +1,12 @@
 body {
   font-family: 'Cursive', sans-serif;
   margin: 0;
-  background-color: #0d47a1; /* Fondo azul oscuro */
-  color: #ffffff; /* Texto blanco por defecto */
+  background-color: #d1c4e9; /* Pastel púrpura para el fondo */
+  color: #000000; /* Texto negro por defecto */
 }
 
 header {
-  background-color: #1e88e5; /* Azul claro para el fondo del header */
+  background-color: #b39ddb; /* Pastel lavanda para el fondo del header */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +23,7 @@ header {
 }
 
 .header nav a {
-  color: #ffffff; /* Texto blanco para los enlaces de navegación */
+  color: #000000; /* Texto negro para los enlaces de navegación */
   text-decoration: none;
   margin-right: 20px;
   transition: color 0.4s ease;
@@ -31,12 +31,12 @@ header {
 }
 
 .header nav a:hover {
-  color: #bbdefb; /* Azul claro para el hover de los enlaces */
+  color: #d7ccc8; /* Beige pastel para el hover de los enlaces */
 }
 
 .header button {
-  background-color: #42a5f5; /* Azul claro para los botones */
-  color: #ffffff;
+  background-color: #b3e5fc; /* Pastel azul para los botones */
+  color: #000000;
   border: none;
   cursor: pointer;
   padding: 10px 15px;
@@ -45,7 +45,7 @@ header {
 }
 
 .header button:hover {
-  background-color: #1e88e5; /* Azul claro más oscuro en hover */
+  background-color: #81d4fa; /* Pastel azul más oscuro en hover */
 }
 
 .contenido {
@@ -53,12 +53,12 @@ header {
   top: 0;
   left: 0;
   z-index: 5;
-  background-color: #283593; /* Azul oscuro para el contenido */
+  background-color: #ce93d8; /* Pastel púrpura oscuro para el contenido */
   padding: 20px;
 }
 
 h3 {
-  color: #90caf9; /* Azul claro para los títulos */
+  color: #ffe0b2; /* Pastel naranja claro para los títulos */
   margin: 20px 0;
 }
 
@@ -67,7 +67,7 @@ h3 {
   flex-wrap: nowrap;
   overflow-x: auto;
   width: 100%;
-  background-color: #0d47a1; /* Azul oscuro para la galería de imágenes */
+  background-color: #d1c4e9; /* Pastel púrpura para la galería de imágenes */
 }
 
 .imagen {
@@ -79,13 +79,13 @@ h3 {
 }
 
 .carrito {
-  border: 1px solid #1e88e5; /* Borde azul claro */
+  border: 1px solid #b39ddb; /* Borde lavanda pastel */
   width: 50px;
   height: auto;
 }
 
 .user {
-  background-color: #1565c0; /* Azul medio para el usuario */
+  background-color: #c5cae9; /* Pastel azul claro para el usuario */
   text-align: center;
   padding: 10px;
   border-radius: 4px;
@@ -95,8 +95,8 @@ h3 {
   position: absolute;
   top: 100px;
   right: 20px;
-  background-color: #1a237e; /* Azul índigo oscuro para el fondo del formulario */
-  border: 1px solid #0d47a1; /* Borde azul oscuro */
+  background-color: #e1bee7; /* Pastel rosa claro para el fondo del formulario */
+  border: 1px solid #d1c4e9; /* Borde púrpura pastel */
   padding: 20px;
   z-index: 100;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -114,20 +114,20 @@ h3 {
 
 .header .formulario label {
   font-weight: bold;
-  color: #ffffff; /* Texto blanco */
+  color: #000000; /* Texto negro */
 }
 
 .header .formulario input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #0d47a1; /* Borde azul oscuro */
+  border: 1px solid #d1c4e9; /* Borde púrpura pastel */
   border-radius: 4px;
   font-size: 14px;
 }
 
 .header .formulario button {
-  background-color: #42a5f5;
-  color: #ffffff;
+  background-color: #b3e5fc; /* Pastel azul para el botón */
+  color: #000000;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -137,12 +137,12 @@ h3 {
 }
 
 .header .formulario button:hover {
-  background-color: #1e88e5; /* Azul claro más oscuro en hover */
+  background-color: #81d4fa; /* Pastel azul más oscuro en hover */
 }
 
 .btn-ini-sesion {
-  background-color: #1e88e5; /* Azul claro para el botón de inicio de sesión */
-  color: #ffffff;
+  background-color: #b3e5fc; /* Pastel azul para el botón de inicio de sesión */
+  color: #000000;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -152,7 +152,7 @@ h3 {
 }
 
 .btn-ini-sesion:hover {
-  background-color: #1565c0; /* Azul medio en hover */
+  background-color: #81d4fa; /* Pastel azul más oscuro en hover */
 }
 
 @media (max-width: 568px) {
