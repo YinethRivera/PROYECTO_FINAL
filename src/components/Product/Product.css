@@ -29,7 +29,6 @@ body {
   text-align: center;
 }
 
-
 .category-items {
   display: flex;
   flex-wrap: nowrap;
@@ -51,76 +50,98 @@ body {
 
 .product-card {
   display: flex;
-  background-color: #1e3a8a; /* Azul oscuro para el fondo de las tarjetas de productos */
   flex-direction: column;
   width: 200px;
+  height: 200px;
   min-width: 200px;
-  height: 500px;
+  min-height: 200px;
   margin: 8px;
   box-sizing: border-box;
   align-items: center;
-  justify-content: center;
-  border: 1px solid #87ceeb; /* Azul cielo claro para el borde */
+  justify-content: space-between; /* Distribuye el contenido verticalmente */
+  padding: 10px; /* Espacio interior para mejor ajuste */
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(135, 206, 235, 0.5); /* Sombra azul cielo claro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
   color: #ffffff; /* Texto blanco */
   transition: all 0.3s;
-  margin-bottom: 40px;
+  overflow: hidden; /* Oculta el contenido desbordado */
   position: relative;
 }
 
-.product-image {
-  width: auto;
-  max-width: 100px;
-  height: 100px;
-  border-radius: 8px;
-  margin-bottom: 19px;
-  margin-top: 10px;
-  background-color: #4682b4; /* Azul acero para el fondo de la imagen */
+/* Diferentes tonos de café claro */
+.product-card:nth-child(1) {
+  background-color: #D2B48C; /* Café claro */
+  border: 1px solid #C3A478;
+}
+
+.product-card:nth-child(2) {
+  background-color: #F5DEB3; /* Trigo */
+  border: 1px solid #E8C68C;
+}
+
+.product-card:nth-child(3) {
+  background-color: #F0E68C; /* Amarillo claro */
+  border: 1px solid #D2C277;
+}
+
+.product-card:nth-child(4) {
+  background-color: #FFE4B5; /* Mocca claro */
+  border: 1px solid #DDBE96;
+}
+
+.product-card:nth-child(5) {
+  background-color: #EED9C4; /* Almendra tostada */
+  border: 1px solid #D5B8A1;
 }
 
 .product-card:hover {
-  box-shadow: 0 4px 8px rgba(135, 206, 235, 0.7); /* Sombra azul cielo claro más intensa */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
   transform: scale(1.05);
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background-color: #C3A478; /* Café claro para el fondo de la imagen */
 }
 
 .product-card h3 {
   color: #ffffff; /* Texto blanco */
-  font-size: 14px;
+  font-size: 12px; /* Ajuste de tamaño para mejor ajuste */
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 4px; /* Menor margen */
 }
 
 .product-card p {
-  font-size: 14px;
-  color: #b0c4de; /* Azul claro para la descripción */
-  margin-bottom: 16px;
+  font-size: 12px; /* Ajuste de tamaño para mejor ajuste */
+  color: #f5f5f5; /* Gris claro para la descripción */
+  margin-bottom: 4px; /* Menor margen */
 }
 
 .product-card button {
-  background-color: #4169e1; /* Azul real para el botón */
+  background-color: #C3A478; /* Café claro para el botón */
   width: 100%;
   border: none;
   border-radius: 4px;
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 4px 8px; /* Ajuste de padding para mejor ajuste */
+  font-size: 12px; /* Ajuste de tamaño para mejor ajuste */
   cursor: pointer;
   color: #ffffff; /* Texto blanco */
 }
 
 .product-card button:hover {
-  background-color: #87ceeb; /* Azul cielo claro al pasar el cursor */
+  background-color: #D2B48C; /* Café claro más suave al pasar el cursor */
 }
 
 .product-data {
   overflow: hidden;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   width: 100%;
-  height: 50%;
-  margin-bottom: 16px;
-  margin-top: 10px;
+  flex-grow: 1; /* Ajuste dinámico de la altura disponible */
+  text-overflow: ellipsis; /* Puntos suspensivos si el texto es muy largo */
 }
 
 .product-numbers {
@@ -131,33 +152,25 @@ body {
 }
 
 .product-numbers .price {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   color: #000000; /* Negro para el precio */
 }
 
 .product-numbers .price-before {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: lighter;
   color: #000000; /* Negro para el precio anterior */
   text-decoration: line-through;
 }
 
-
 @media (max-width: 1024px) {
   .product-card {
     width: 180px;
-    height: 450px;
-  }
-
-  .product-card h3, 
-  .product-card p, 
-  .product-card button {
-    font-size: 12px;
-  }
-
-  .product-card button {
-    padding: 6px 14px;
+    height: 180px;
+    min-width: 180px;
+    min-height: 180px;
+    padding: 8px;
   }
 }
 
@@ -169,7 +182,10 @@ body {
 
   .product-card {
     width: 160px;
-    height: 400px;
+    height: 160px;
+    min-width: 160px;
+    min-height: 160px;
+    padding: 6px;
   }
 
   .product-card h3, 
@@ -178,13 +194,12 @@ body {
     font-size: 10px;
   }
 
-  .product-card button {
-    padding: 4px 12px;
+  .product-numbers .price {
+    font-size: 16px;
   }
 
-  .product-numbers .price,
   .product-numbers .price-before {
-    font-size: 20px;
+    font-size: 14px;
   }
 }
 
@@ -196,7 +211,10 @@ body {
 
   .product-card {
     width: 140px;
-    height: 350px;
+    height: 140px;
+    min-width: 140px;
+    min-height: 140px;
+    padding: 4px;
   }
 
   .product-card h3, 
@@ -205,12 +223,11 @@ body {
     font-size: 8px;
   }
 
-  .product-card button {
-    padding: 2px 10px;
+  .product-numbers .price {
+    font-size: 14px;
   }
 
-  .product-numbers .price,
   .product-numbers .price-before {
-    font-size: 18px;
+    font-size: 12px;
   }
 }
