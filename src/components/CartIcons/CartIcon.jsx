@@ -9,17 +9,21 @@ const CartIcon = () => {
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
+  const cerrarCarrito = () => {
+    setShowCart(!showCart)
+  }
+
   return (
     <div className={styles.iconWrapper}>
-      <i
+      <span
         className={`bi bi-cart4 ${styles.cartIcon}`}
         aria-label="Cart"
-        onClick={() => setShowCart(!showCart)}
-      ></i>
+        onClick={cerrarCarrito}
+      ></span>
       {totalItems > 0 && <span className={styles.badge}>{totalItems}</span>}
       {showCart && (
         <div className={styles.cartDropdown}>
-          <Carrito />
+          <Carrito cerrarCarrito={cerrarCarrito} />
         </div>
       )}
     </div>

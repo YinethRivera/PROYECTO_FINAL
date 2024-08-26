@@ -33,23 +33,28 @@ function Header() {
           <img className="logo" src={Img} />
           <nav className="nav">
             <Link to="electronics" smooth={true} duration={200}>
-              Electronics
+              Tecnologia
             </Link>
             <Link to="jewelery" smooth={true} duration={200}>
-              jewelery
+              Joyería
             </Link>
             <Link to="mensclothing" smooth={true} duration={200}>
-              Men\'s Clothing
+              Ropa de hombre
             </Link>
             <Link to="womensclothing" smooth={true} duration={200}>
-              Women\'s Clothing
+              Ropa de mujer
             </Link>
           </nav>
         </div>
         <button onClick={ira}>Ingresar</button>
 
-        <button type="submit" className="btn-ini-sesion" onClick={toggleFormulario}>
-          {" "}Login
+        <button
+          type="submit"
+          className="btn-ini-sesion"
+          onClick={toggleFormulario}
+        >
+          {" "}
+          Login
           {/* <button ></button> */}
         </button>
         <button onClick={CerrarSesion}>Cerrar Sesion</button>

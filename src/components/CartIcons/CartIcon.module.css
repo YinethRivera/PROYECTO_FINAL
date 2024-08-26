@@ -4,23 +4,24 @@
   display: inline-block;
 }
 
+
 .cartIcon {
   font-size: 40px;
   cursor: pointer;
-  color: #4169e1; /* Azul real para el icono */
+  color: #703b2d; /* Café clarito para el icono */
   transition: color 0.3s ease;
 }
 
 .cartIcon:hover {
-  color: #2563eb; /* Azul más intenso al pasar el cursor */
+  color: #D2B48C; /* Café más claro al pasar el cursor */
 }
 
 .badge {
   position: absolute;
   top: -10px;
   right: -10px;
-  background: #ef4444; /* Rojo para el badge */
-  color: #ffffff; /* Blanco para el texto del badge */
+  background: #F0E68C; /* Amarillo claro para el badge */
+  color: #000000; /* Texto negro para el badge */
   border-radius: 50%;
   padding: 2px 8px;
   font-size: 14px;
@@ -28,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #000000; /* Borde negro para el badge */
 }
 
 .cartDropdown {
@@ -35,8 +37,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #d6e7f5; /* Azul acero para el fondo */
-  border: 2px solid #1e3a8a; /* Azul más oscuro para el borde */
+  background-color: #FFE4B5; /* Beige claro para el fondo */
+  border: 2px solid #000000; /* Borde negro */
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
   z-index: 50;
@@ -44,7 +46,7 @@
   max-height: 25rem;
   overflow-y: auto;
   border-radius: 8px;
-  outline: 4px solid #2563eb; /* Azul intenso para el borde exterior */
+  outline: 4px solid #000000; /* Borde exterior negro */
   outline-offset: -4px;
   color: #000000; /* Texto negro */
 }
@@ -101,4 +103,35 @@
     width: 20rem; /* Reducir el ancho del dropdown */
     padding: 0.75rem; /* Reducir el padding */
   }
+}
+
+/* Estilos para productos en el dropdown */
+.cartDropdown .product {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px; /* Reducir el espacio entre productos */
+  border: 1px solid #000000; /* Borde negro para los productos */
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.cartDropdown .product img {
+  width: 40px; /* Hacer las imágenes de productos más pequeñas */
+  height: 40px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.cartDropdown .product .product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartDropdown .product .product-info .product-name {
+  font-size: 12px; /* Reducir tamaño del nombre del producto */
+}
+
+.cartDropdown .product .product-info .product-price {
+  font-size: 10px; /* Reducir tamaño del precio del producto */
+  color: #C3A478; /* Café clarito para el precio */
 }

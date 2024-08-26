@@ -3,7 +3,7 @@
   max-width: 500px;
   margin: 80px auto;
   padding: 40px 30px 30px;
-  background: linear-gradient(135deg, #d0e6ff, #a3c9f9);
+  background: linear-gradient(135deg, #FFE4B5, #F0E68C); /* Gradient with #FFE4B5 and #F0E68C */
   border-radius: 20px;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
   min-height: 500px;
@@ -19,7 +19,7 @@
 }
 
 .input-group {
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
 .input-group label {
@@ -27,24 +27,24 @@
   font-weight: bold;
   margin-bottom: 10px;
   display: block;
-  color: #2b4d80;
-  text-shadow: 1px 1px 2px #5a9bd8;
+  color: #C3A478; /* Use #C3A478 for label text */
+  text-shadow: 1px 1px 2px #D2B48C; /* Use #D2B48C for the shadow */
 }
 
 .input-group input {
   width: 100%;
   padding: 14px;
-  border: 2px solid #6aa9ff;
+  border: 2px solid #C3A478; /* Use #C3A478 for border */
   border-radius: 10px;
   box-sizing: border-box;
   font-size: 16px;
-  background-color: #f0f8ff;
+  background-color: #FFE4B5; /* Use #FFE4B5 for input background */
 }
 
 .submit-button {
   padding: 14px;
   font-size: 18px;
-  background-color: #3b7dd8;
+  background-color: #D2B48C; /* Use #D2B48C for button background */
   color: white;
   border: none;
   border-radius: 10px;
@@ -53,16 +53,16 @@
 }
 
 .submit-button:hover {
-  background-color: #336bb3;
+  background-color: #C3A478; /* Darker shade on hover */
   transform: translateY(-3px);
 }
 
 .welcome-message {
   font-size: 40px;
-  color: #1a3a6d;
+  color: #C3A478; /* Use #C3A478 for the message text */
   margin-bottom: 30px;
   text-align: center;
-  text-shadow: 2px 2px 4px #5a9bd8;
+  text-shadow: 2px 2px 4px #D2B48C; /* Use #D2B48C for the shadow */
 }
 
 /* Media queries para responsividad */
@@ -72,17 +72,9 @@
     margin: 40px auto;
   }
 
-  .input-group label {
-    font-size: 20px; /* Ajustar tamaño de fuente en pantallas medianas */
-  }
-
-  .submit-button {
-    padding: 12px;
-    font-size: 16px; /* Reducir tamaño de botón */
-  }
 
   .welcome-message {
-    font-size: 32px; /* Ajustar tamaño de fuente del mensaje */
+    font-size: 32px;
   }
 }
 
@@ -92,16 +84,9 @@
     margin: 20px auto;
   }
 
-  .input-group label {
-    font-size: 18px; /* Ajustar tamaño de fuente en pantallas pequeñas */
-  }
-
-  .submit-button {
-    padding: 10px;
-    font-size: 14px; /* Reducir tamaño de botón */
-  }
-
+ 
+ 
   .welcome-message {
-    font-size: 28px; /* Ajustar tamaño de fuente del mensaje */
+    font-size: 28px;
   }
 }

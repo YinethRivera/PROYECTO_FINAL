@@ -31,7 +31,7 @@ return (
       </div>
       <div className="div_btn-comprar">
         <button onClick={handleClick} className="b-comprar">
-          Comprar
+          Agregar al carrito
         </button>
       </div>
     </div>
