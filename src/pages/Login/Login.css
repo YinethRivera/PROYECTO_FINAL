@@ -1,4 +1,4 @@
-/* Estilos generales */
+
 .login-container {
   max-width: 500px;
   margin: 80px auto;
@@ -12,7 +12,7 @@
   justify-content: center;
 }
 
-/* Formulario */
+
 .login-form form {
   display: flex;
   flex-direction: column;
@@ -27,51 +27,40 @@
   font-weight: bold;
   margin-bottom: 10px;
   display: block;
-  color: #C3A478; /* Use #C3A478 for label text */
-  text-shadow: 1px 1px 2px #D2B48C; /* Use #D2B48C for the shadow */
+  color: #201607;
+  text-shadow: 1px 1px 2px #141312; 
 }
 
 .input-group input {
   width: 100%;
   padding: 14px;
-  border: 2px solid #C3A478; /* Use #C3A478 for border */
+  border: 2px solid #C3A478; 
   border-radius: 10px;
   box-sizing: border-box;
   font-size: 16px;
-  background-color: #FFE4B5; /* Use #FFE4B5 for input background */
-}
-
-.submit-button {
-  padding: 14px;
-  font-size: 18px;
-  background-color: #D2B48C; /* Use #D2B48C for button background */
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: #FFE4B5; 
 }
 
 .submit-button:hover {
-  background-color: #C3A478; /* Darker shade on hover */
+  background-color: #14500e; 
   transform: translateY(-3px);
 }
 
 .welcome-message {
   font-size: 40px;
-  color: #C3A478; /* Use #C3A478 for the message text */
+  color: #C3A478; 
   margin-bottom: 30px;
+  text-decoration:underline;
   text-align: center;
-  text-shadow: 2px 2px 4px #D2B48C; /* Use #D2B48C for the shadow */
+  text-shadow: 2px 2px 4px #D2B48C; 
 }
 
-/* Media queries para responsividad */
+
 @media (max-width: 768px) {
   .login-container {
     padding: 30px 20px;
     margin: 40px auto;
   }
-
 
   .welcome-message {
     font-size: 32px;
@@ -84,8 +73,6 @@
     margin: 20px auto;
   }
 
- 
- 
   .welcome-message {
     font-size: 28px;
   }

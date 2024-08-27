@@ -88,12 +88,13 @@ export default function Login() {
               placeholder="Ingresa tu contraseña"
             />
           </div>
-          <button type="submit" className="submit-button">
-            Ingresar
-          </button>
-
+          <p>¿Aun no estás registrado? </p>
           <button type="button" onClick={() => setRegistrar(!registrar)}>
             {registrar ? "ingresa" : "registrate"}
+          </button>
+
+          <button type="submit" className="submit-button">
+            Ingresar
           </button>
         </form>
       </div>

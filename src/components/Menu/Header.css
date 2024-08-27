@@ -1,18 +1,20 @@
-/* Estilos generales */
+
 body {
   font-family: 'Cursive', sans-serif;
   margin: 0;
-  background-color: #F0E68C; /* Amarillo claro para el fondo */
-  color: #000000; /* Texto negro por defecto */
+  background-color: #F0E68C; 
+  color: #000000; 
 }
 
 header {
-  background-color: #C3A478; /* Café clarito para el fondo del header */
+  background-color: #C3A478; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  position: relative; /* Añadido para permitir que los elementos posicionados absolutamente se alineen dentro del header */
+  padding: 39px 40px;
+  position: relative; 
+  font-size: 25px;
+  text-decoration:underline
 }
 
 .header .logo {
@@ -25,7 +27,7 @@ header {
 }
 
 .header nav a {
-  color: #000000; /* Texto negro para los enlaces de navegación */
+  color: #000000; 
   text-decoration: none;
   margin-right: 20px;
   transition: color 0.4s ease;
@@ -33,11 +35,11 @@ header {
 }
 
 .header nav a:hover {
-  color: #D2B48C; /* Color café clarito para el hover de los enlaces */
+  color: #D2B48C; 
 }
 
 .header button {
-  background-color: #FFE4B5; /* Beige claro para los botones */
+  background-color: #FFE4B5; 
   color: #000000;
   border: none;
   cursor: pointer;
@@ -47,7 +49,7 @@ header {
 }
 
 .header button:hover {
-  background-color: #F0E68C; /* Amarillo claro en hover */
+  background-color: #F0E68C; 
 }
 
 .contenido {
@@ -55,12 +57,12 @@ header {
   top: 0;
   left: 0;
   z-index: 5;
-  background-color: #C3A478; /* Café clarito para el contenido */
+  background-color: #C3A478; 
   padding: 20px;
 }
 
 h3 {
-  color: #D2B48C; /* Café clarito para los títulos */
+  color: #D2B48C; 
   margin: 20px 0;
 }
 
@@ -69,7 +71,7 @@ h3 {
   flex-wrap: nowrap;
   overflow-x: auto;
   width: 100%;
-  background-color: #F0E68C; /* Amarillo claro para la galería de imágenes */
+  background-color: #F0E68C; 
 }
 
 .imagen {
@@ -81,19 +83,19 @@ h3 {
 }
 
 .carrito {
-  border: 1px solid #C3A478; /* Borde café clarito */
+  border: 1px solid #C3A478; 
   width: 50px;
-  height: 50px; /* Asegurarse de que el carrito tenga altura definida */
+  height: 50px; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FFE4B5; /* Fondo beige claro para el carrito */
-  border-radius: 4px; /* Esquinas redondeadas */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  background-color: #FFE4B5; 
+  border-radius: 4px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 .user {
-  background-color: #D2B48C; /* Café clarito para el usuario */
+  background-color: #D2B48C; 
   text-align: center;
   padding: 10px;
   border-radius: 4px;
@@ -103,8 +105,8 @@ h3 {
   position: absolute;
   top: 100px;
   right: 20px;
-  background-color: #FFE4B5; /* Beige claro para el fondo del formulario */
-  border: 1px solid #F0E68C; /* Amarillo claro para el borde del formulario */
+  background-color: #FFE4B5;
+  border: 1px solid #F0E68C; 
   padding: 20px;
   z-index: 100;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -122,19 +124,19 @@ h3 {
 
 .header .formulario label {
   font-weight: bold;
-  color: #000000; /* Texto negro */
+  color: #000000; 
 }
 
 .header .formulario input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #F0E68C; /* Amarillo claro para el borde del input */
+  border: 1px solid #F0E68C; 
   border-radius: 4px;
   font-size: 14px;
 }
 
 .header .formulario button {
-  background-color: #FFE4B5; /* Beige claro para el botón del formulario */
+  background-color: #FFE4B5; 
   color: #000000;
   border: none;
   border-radius: 4px;
@@ -145,7 +147,7 @@ h3 {
 }
 
 .header .formulario button:hover {
-  background-color: #F0E68C; /* Amarillo claro en hover */
+  background-color: #F0E68C; 
 }
 
 
