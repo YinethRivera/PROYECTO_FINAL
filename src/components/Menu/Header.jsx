@@ -42,14 +42,13 @@ function Header() {
             </Link>
           </nav>
         </div>
-        <button onClick={ira}>Ingresar</button>
-
-
-        <button onClick={CerrarSesion}>Cerrar Sesion </button>
 
         <div className="carrito">
           <CartIcon />
         </div>
+        <button onClick={ira}>Ingresar</button>
+
+        <button onClick={CerrarSesion}>Cerrar Sesion </button>
       </header>
       <Outlet />
     </div>

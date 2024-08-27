@@ -24,7 +24,7 @@ export default function App() {
     <>
       <Menu />
       <div className="category-container" name="jewelery">
-        <h1 className="text-gradient">jewelery</h1>
+        <h1 className="text-gradient">Joyeria</h1>
         <div className="category-items">
           {jewelery.map((product, index) => (
             <Product key={index} {...product} />
@@ -32,7 +32,7 @@ export default function App() {
         </div>
       </div>
       <div className="category-container" name="electronics">
-        <h1 className="text-gradient">Electronics</h1>
+        <h1 className="text-gradient">Tecnologia</h1>
         <div className="category-items">
           {electronics.map((product, index) => (
             <Product key={index} {...product} />
@@ -40,7 +40,7 @@ export default function App() {
         </div>
       </div>
       <div className="category-container" name="mensclothing">
-        <h1 className="text-gradient">Men's Clothing</h1>
+        <h1 className="text-gradient">Ropa hombre</h1>
         <div className="category-items">
           {mensClothing.map((product, index) => (
             <Product key={index} {...product} />
@@ -48,7 +48,7 @@ export default function App() {
         </div>
       </div>
       <div className="category-container" name="womensclothing">
-        <h1 className="text-gradient">Women's Clothing</h1>
+        <h1 className="text-gradient">Ropa de mujer</h1>
         <div className="category-items">
           {womensClothing.map((product, index) => (
             <Product key={index} {...product} />
