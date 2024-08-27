@@ -10,10 +10,6 @@ import { auth } from "../../firebase/credenciales";
 function Header() {
   const [activo, setactivo] = useState(false);
 
-  const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  const toggleFormulario = () => {
-    setMostrarFormulario(!mostrarFormulario);
-  };
   const CerrarSesion = async () => {
     try {
       await signOut(auth);
@@ -49,7 +45,7 @@ function Header() {
         <button onClick={ira}>Ingresar</button>
 
 
-        <button onClick={CerrarSesion}>Cerrar Sesion No funcionaaaaa</button>
+        <button onClick={CerrarSesion}>Cerrar Sesion </button>
 
         <div className="carrito">
           <CartIcon />
