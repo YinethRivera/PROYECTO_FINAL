@@ -8,20 +8,20 @@
 .cartIcon {
   font-size: 40px;
   cursor: pointer;
-  color: #703b2d; /* Café clarito para el icono */
+  color: #703b2d;
   transition: color 0.3s ease;
 }
 
 .cartIcon:hover {
-  color: #D2B48C; /* Café más claro al pasar el cursor */
+  color: #D2B48C; 
 }
 
 .badge {
   position: absolute;
   top: -10px;
   right: -10px;
-  background: #F0E68C; /* Amarillo claro para el badge */
-  color: #000000; /* Texto negro para el badge */
+  background: #F0E68C; 
+  color: #000000;
   border-radius: 50%;
   padding: 2px 8px;
   font-size: 14px;
@@ -29,7 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #000000; /* Borde negro para el badge */
+  border: 1px solid #000000;
 }
 
 .cartDropdown {
@@ -37,8 +37,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #FFE4B5; /* Beige claro para el fondo */
-  border: 2px solid #000000; /* Borde negro */
+  background-color: #FFE4B5; 
+  border: 2px solid #000000; 
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
   z-index: 50;
@@ -46,9 +46,9 @@
   max-height: 25rem;
   overflow-y: auto;
   border-radius: 8px;
-  outline: 4px solid #000000; /* Borde exterior negro */
+  outline: 4px solid #000000; 
   outline-offset: -4px;
-  color: #000000; /* Texto negro */
+  color: #000000;
 }
 
 .cartDropdown::-webkit-scrollbar {
@@ -68,55 +68,55 @@
   background: #555;
 }
 
-/* Media queries para responsividad */
+
 @media (max-width: 768px) {
   .cartIcon {
-    font-size: 32px; /* Reducir tamaño del icono en pantallas medianas */
+    font-size: 32px; 
   }
 
   .badge {
-    font-size: 12px; /* Reducir tamaño del badge */
-    padding: 1px 6px; /* Ajustar el padding */
-    top: -8px; /* Ajustar la posición */
+    font-size: 12px; 
+    padding: 1px 6px; 
+    top: -8px; 
     right: -8px;
   }
 
   .cartDropdown {
-    width: 25rem; /* Reducir el ancho del dropdown */
-    padding: 1rem; /* Ajustar el padding */
+    width: 25rem; 
+    padding: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .cartIcon {
-    font-size: 28px; /* Reducir aún más el tamaño del icono en pantallas pequeñas */
+    font-size: 28px; 
   }
 
   .badge {
-    font-size: 10px; /* Ajustar el tamaño del badge */
+    font-size: 10px; 
     padding: 1px 5px;
     top: -6px;
     right: -6px;
   }
 
   .cartDropdown {
-    width: 20rem; /* Reducir el ancho del dropdown */
-    padding: 0.75rem; /* Reducir el padding */
+    width: 20rem;
+    padding: 0.75rem; 
   }
 }
 
-/* Estilos para productos en el dropdown */
+
 .cartDropdown .product {
   display: flex;
   align-items: center;
-  margin-bottom: 8px; /* Reducir el espacio entre productos */
-  border: 1px solid #000000; /* Borde negro para los productos */
+  margin-bottom: 8px; 
+  border: 1px solid #000000; 
   padding: 5px;
   border-radius: 4px;
 }
 
 .cartDropdown .product img {
-  width: 40px; /* Hacer las imágenes de productos más pequeñas */
+  width: 40px;
   height: 40px;
   border-radius: 4px;
   margin-right: 10px;
@@ -128,10 +128,10 @@
 }
 
 .cartDropdown .product .product-info .product-name {
-  font-size: 12px; /* Reducir tamaño del nombre del producto */
+  font-size: 12px; 
 }
 
 .cartDropdown .product .product-info .product-price {
-  font-size: 10px; /* Reducir tamaño del precio del producto */
-  color: #C3A478; /* Café clarito para el precio */
+  font-size: 10px;
+  color: #C3A478; 
 }

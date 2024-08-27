@@ -1,5 +1,4 @@
 body {
-  background-color: rgb(144, 162, 212); /* Gris oscuro para el fondo de la página */
   margin: 0;
   padding: 0;
   align-items: center;
@@ -9,7 +8,7 @@ body {
   display: flex;
   margin-left: 170px;
   justify-content: center;
-  color: #000000; /* Negro para el título */
+  color: #000000; 
   padding: 20px;
   width: 94.7%;
   z-index: 1;
@@ -18,14 +17,13 @@ body {
 
 .search {
   display: flex;
-  background-color: #4169e1; /* Azul real para el fondo de la barra de búsqueda */
-  border: 2px solid #4682b4; /* Azul acero para el borde */
+  background-color: #4169e1; 
   flex-direction: row;
   align-items: baseline;
 }
 
 .titulos {
-  color: #000000; /* Negro para los títulos */
+  color: #000000;
   text-align: center;
 }
 
@@ -35,7 +33,6 @@ body {
   flex-direction: row;
   overflow-x: scroll;
   width: 100%;
-  background-color: #d6e7f5; /* Azul acero para el fondo */
 }
 
 .imagenes1,
@@ -52,50 +49,50 @@ body {
   display: flex;
   flex-direction: column;
   width: 250px;
-  height: auto; /* Permite que la tarjeta ajuste su altura según el contenido */
+  height: auto;
   min-width: 250px;
   min-height: 250px;
   margin: 12px;
   box-sizing: border-box;
   align-items: center;
-  justify-content: flex-start; /* Alinea el contenido hacia el inicio */
+  justify-content: flex-start;
   padding: 12px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-  color: #000000; /* Texto negro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #000000; 
   transition: all 0.3s;
-  overflow: hidden; /* Oculta el contenido desbordado */
+  overflow: hidden;
   position: relative;
 }
 
-/* Diferentes tonos de café claro */
+
 .product-card:nth-child(1) {
-  background-color: #D2B48C; /* Café claro */
+  background-color: #D2B48C; 
   border: 1px solid #C3A478;
 }
 
 .product-card:nth-child(2) {
-  background-color: #F5DEB3; /* Trigo */
+  background-color: #F5DEB3;
   border: 1px solid #E8C68C;
 }
 
 .product-card:nth-child(3) {
-  background-color: #F0E68C; /* Amarillo claro */
+  background-color: #F0E68C;
   border: 1px solid #D2C277;
 }
 
 .product-card:nth-child(4) {
-  background-color: #FFE4B5; /* Mocca claro */
+  background-color: #FFE4B5; 
   border: 1px solid #DDBE96;
 }
 
 .product-card:nth-child(5) {
-  background-color: #EED9C4; /* Almendra tostada */
+  background-color: #EED9C4; 
   border: 1px solid #D5B8A1;
 }
 
 .product-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
 }
 
@@ -104,45 +101,45 @@ body {
   height: 100px;
   border-radius: 8px;
   margin-bottom: 8px;
-  background-color: #C3A478; /* Café claro para el fondo de la imagen */
+  background-color: #C3A478;
 }
 
 .product-card h3 {
-  color: #000000; /* Texto negro */
-  font-size: 16px; /* Ajuste de tamaño para mejor ajuste */
+  color: #000000; 
+  font-size: 16px;
   font-weight: bold;
-  margin-bottom: 4px; /* Menor margen */
+  margin-bottom: 4px;
 }
 
 .product-card p {
-  font-size: 14px; /* Ajuste de tamaño para mejor ajuste */
-  color: #000000; /* Negro para la descripción */
-  margin-bottom: 4px; /* Menor margen */
-  white-space: normal; /* Permite que el texto envuelva en múltiples líneas */
+  font-size: 14px; 
+  color: #000000; 
+  margin-bottom: 4px; 
+  white-space: normal; 
 }
 
 .product-card button {
-  background-color: #C3A478; /* Café claro para el botón */
+  background-color: #C3A478; 
   width: 100%;
   border: none;
   border-radius: 4px;
-  padding: 6px 10px; /* Ajuste de padding para mejor ajuste */
-  font-size: 14px; /* Ajuste de tamaño para mejor ajuste */
+  padding: 6px 10px;
+  font-size: 14px; 
   cursor: pointer;
-  color: #000000; /* Texto negro */
+  color: #000000; 
 }
 
 .product-card button:hover {
-  background-color: #D2B48C; /* Café claro más suave al pasar el cursor */
+  background-color: #D2B48C; 
 }
 
 .product-data {
-  overflow: visible; /* Permite que la descripción se muestre completamente */
+  overflow: visible; 
   display: flex;
   flex-direction: column;
   width: 100%;
-  flex-grow: 1; /* Ajuste dinámico de la altura disponible */
-  text-overflow: initial; /* Elimina los puntos suspensivos */
+  flex-grow: 1; 
+  text-overflow: initial; 
 }
 
 .product-numbers {
@@ -155,13 +152,13 @@ body {
 .product-numbers .price {
   font-size: 20px;
   font-weight: bold;
-  color: #000000; /* Negro para el precio */
+  color: #000000; 
 }
 
 .product-numbers .price-before {
   font-size: 18px;
   font-weight: lighter;
-  color: #000000; /* Negro para el precio anterior */
+  color: #000000;
   text-decoration: line-through;
 }
 
