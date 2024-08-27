@@ -48,26 +48,12 @@ function Header() {
         </div>
         <button onClick={ira}>Ingresar</button>
 
-        <button
-          type="submit"
-          className="btn-ini-sesion"
-          onClick={toggleFormulario}
-        >
-          {" "}
-          Login
-          {/* <button ></button> */}
-        </button>
-        <button onClick={CerrarSesion}>Cerrar Sesion</button>
+
+        <button onClick={CerrarSesion}>Cerrar Sesion No funcionaaaaa</button>
 
         <div className="carrito">
           <CartIcon />
         </div>
-
-        {
-          <button className="class-menu-btn" id="menu-btn">
-            &#9776;
-          </button>
-        }
       </header>
       <Outlet />
     </div>

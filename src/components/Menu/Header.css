@@ -148,20 +148,8 @@ h3 {
   background-color: #F0E68C; /* Amarillo claro en hover */
 }
 
-.btn-ini-sesion {
-  background-color: #FFE4B5; /* Beige claro para el botón de inicio de sesión */
-  color: #000000;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 10px 20px;
-  margin-left: 30px;
-  transition: background-color 0.3s ease;
-}
 
-.btn-ini-sesion:hover {
-  background-color: #F0E68C; /* Amarillo claro en hover */
-}
+
 
 @media (max-width: 568px) {
   .header nav {
