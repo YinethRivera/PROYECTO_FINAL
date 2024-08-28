@@ -2,21 +2,24 @@
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #FFE4B5; 
+  background-color: #ffe4b5;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
 .contenedor-formulario h2 {
   font-size: 40px;
-  color: #C3A478; 
+  color: #c3a478;
   margin-bottom: 30px;
-  text-decoration:underline;
+  text-decoration: underline;
   text-align: center;
-  text-shadow: 2px 2px 4px #D2B48C; 
+  text-shadow: 2px 2px 4px #d2b48c;
 }
 
+.warning {
+  color: red;
+  margin-top: 10px;
+}
 
 .grupo-formulario {
   margin-bottom: 15px;
@@ -27,18 +30,18 @@
   font-weight: bold;
   margin-bottom: 10px;
   display: block;
-  color: #201607; 
-  text-shadow: 1px 1px 2px #141312; 
+  color: #201607;
+  text-shadow: 1px 1px 2px #141312;
 }
 
 .grupo-formulario input {
   width: 100%;
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #C3A478; 
+  border: 1px solid #c3a478;
   border-radius: 10px;
   box-sizing: border-box;
-  background-color: #FFE4B5; 
+  background-color: #ffe4b5;
 }
 
 button[type="submit"] {
@@ -54,5 +57,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #C3A478; 
+  background-color: #c3a478;
 }

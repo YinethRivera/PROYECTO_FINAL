@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Login.css";
 import {
-  createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -22,28 +21,7 @@ export default function Login() {
     });
   }, []);
 
-  const RegisterUser = async (e) => {
-    e.preventDefault();
-
-    try {
-      const UsuarioCredenciales = await createUserWithEmailAndPassword(
-        auth,
-        Email,
-        Password
-      );
-      const User = UsuarioCredenciales.user;
-      await fetch("http://localhost:3000/usuarios", {
-        method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          uid_usuario: User.uid,
-          correo_electronico: Email,
-        }),
-      });
-    } catch (error) {
-      console.log("error al crear cuenta", error);
-    }
-  };
+  
 
   const [registrar, setRegistrar] = useState(false);
   const ingresarUser = async (e) => {
@@ -60,11 +38,7 @@ export default function Login() {
     <div className="login-container">
       <div className="login-form">
         <h2 className="welcome-message">Bienvenido</h2>
-        <form
-          onSubmit={(e) => {
-            registrar ? RegisterUser(e) : ingresarUser(e);
-          }}
-        >
+        <form onSubmit={()=>ingresarUser()}>
           <div className="input-group">
             <label htmlFor="usuario">Usuario: </label>
             <input
@@ -88,14 +62,13 @@ export default function Login() {
               placeholder="Ingresa tu contraseña"
             />
           </div>
-          <p>¿Aun no estás registrado? </p>
-          <button type="button" onClick={() => setRegistrar(!registrar)}>
-            {registrar ? "ingresa" : "registrate"}
-          </button>
-
           <button type="submit" className="submit-button">
             Ingresar
           </button>
+          <p>¿Aun no estás registrado? </p>
+          <a href="/formulario">
+            <button type="button">registrate</button>
+          </a>
         </form>
       </div>
     </div>

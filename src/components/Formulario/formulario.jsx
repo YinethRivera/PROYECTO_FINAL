@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import "./formulario.css"
+import "./formulario.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase/credenciales";
+import { UserRegister } from "../UserRegister/UserRegister";
 
 const RegistroForm = () => {
   const [formData, setFormData] = useState({
@@ -17,8 +20,43 @@ const RegistroForm = () => {
     });
   };
 
+  const RegisterUser = async (e) => {
+    const { correoElectronico, contraseña } = formData;
+
+    try {
+      const UsuarioCredenciales = await createUserWithEmailAndPassword(
+        auth,
+        correoElectronico,
+        contraseña
+      );
+      const User = UsuarioCredenciales.user;
+      await fetch("http://localhost:3000/usuarios", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          uid_usuario: User.uid,
+          correo_electronico: correoElectronico,
+        }),
+      });
+      alert("Registro de usuario exitoso!");
+      setFormData({
+        nombreCompleto: "",
+        correoElectronico: "",
+        telefono: "",
+        contraseña: "",
+      });
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        alert("El usuario ya está registrado.");
+      } else {
+        console.log("Error al crear cuenta", error);
+      }
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    RegisterUser();
     console.log("Datos del formulario:", formData);
   };
 

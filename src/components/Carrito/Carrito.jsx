@@ -12,7 +12,7 @@ const Carrito = ({ cerrarCarrito }) => {
         x
       </span>
 
-      <div className="carrito-contenedor">
+      <div className="">
         {cart.length === 0 ? (
           <div className="no-productos">
             <p> no hay productos c:</p>
@@ -27,7 +27,7 @@ const Carrito = ({ cerrarCarrito }) => {
                     src={product.image}
                     alt={product.name}
                   />
-                  {/* <h3>{product.image}</h3> */}
+                  
                   <p>
                     {product.description.length > 50
                       ? `${product.description.slice(0, 50)}...`
@@ -42,6 +42,7 @@ const Carrito = ({ cerrarCarrito }) => {
                 </div>
               ))}
               <button onClick={() => clearCart()}>Vaciar carrito</button>
+              <button onClick={() => clearCart()}>comprar</button>
             </div>
           </>
         )}
