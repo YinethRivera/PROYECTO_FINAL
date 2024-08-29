@@ -1,10 +1,18 @@
 import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 import "./Carrito.css";
 
 const Carrito = ({ cerrarCarrito }) => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
+  const navigate = useNavigate(); // Usa useNavigate para la redirección
+
+
+    const handleCompra = () => {
+      // Lógica adicional para la compra si es necesario
+      navigate("/gracias"); // Redirige a la página de "Gracias"
+    };
 
   return (
     <div>
@@ -27,7 +35,7 @@ const Carrito = ({ cerrarCarrito }) => {
                     src={product.image}
                     alt={product.name}
                   />
-                  
+
                   <p>
                     {product.description.length > 50
                       ? `${product.description.slice(0, 50)}...`
@@ -42,7 +50,7 @@ const Carrito = ({ cerrarCarrito }) => {
                 </div>
               ))}
               <button onClick={() => clearCart()}>Vaciar carrito</button>
-              <button onClick={() => clearCart()}>comprar</button>
+              <button onClick={handleCompra}>Comprar</button> 
             </div>
           </>
         )}

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./formulario.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
-import { UserRegister } from "../UserRegister/UserRegister";
+
+
 
 const RegistroForm = () => {
   const [formData, setFormData] = useState({

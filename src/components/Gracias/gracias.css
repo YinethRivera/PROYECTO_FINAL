@@ -1,0 +1,57 @@
+.imagenInstagram img {
+  height: 220px;
+  background-size: cover;
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  border-radius: 4px;
+}
+
+.gracias-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fae5d3; /* Darker light brown for background */
+  text-align: center;
+  padding: 20px;
+  color: #784212; /* Lightest color for text for contrast */
+}
+.instagram_facebook {
+  padding: 5px;
+  text-decoration:underline;
+  color: rgb(63, 36, 5);
+  font-family:'Courier New', Courier, monospace;
+}
+.redes{
+  margin: 50px;
+}
+
+.gracias-container h1 {
+  font-size: 2.5rem;
+  color: #784212; /* Light brown for the title */
+  margin-bottom: 20px;
+}
+
+.gracias-container p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #873600; /* Yellowish shade for the text */
+}
+
+.gracias-container button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #af601a; /* Light brown for button background */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.gracias-container button:hover {
+  background-color: #935116; /* Darker shade of light brown for hover effect */
+}
