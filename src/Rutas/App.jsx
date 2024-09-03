@@ -1,4 +1,4 @@
-import Button from "../components/Button/index.jsx";
+// import Button from "../components/Button/index.jsx";
 import Menu from "../components/Menu/Header";
 import Product from "../components/Product";
 import { useFetch } from "../hook/useGetProducts.js";

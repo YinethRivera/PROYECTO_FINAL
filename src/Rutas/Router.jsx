@@ -3,7 +3,7 @@ import App from "./App";
 import Login from "../pages/Login/Login";
 import Formulario from "../components/Formulario/formulario";
 import Gracias from "../components/Gracias/Gracias";
-// import ProfileUser from "./components/ProfileUser";
+import UserProfile from "../components/PerfilUsuario/UserProfile";
 
 
 
@@ -16,7 +16,7 @@ export default function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/Formulario" element={<Formulario />} />
         <Route path="/gracias" element={<Gracias />} />
-        {/* <Route path="/profile" element={<Profile />} /> */}
+        <Route path="/UserProfile" element={<UserProfile />} />
       </Routes>
     </BrowserRouter>
   );
