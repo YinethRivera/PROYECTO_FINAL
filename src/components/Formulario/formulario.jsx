@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./formulario.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
-
-
+import { useNavigate } from "react-router-dom";
 
 const RegistroForm = () => {
   const [formData, setFormData] = useState({
@@ -11,8 +10,8 @@ const RegistroForm = () => {
     correoElectronico: "",
     telefono: "",
     contraseña: "",
-    
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +22,8 @@ const RegistroForm = () => {
   };
 
   const RegisterUser = async (e) => {
-    const { correoElectronico, contraseña } = formData;
+    const { correoElectronico, contraseña, nombreCompleto, telefono } =
+      formData;
 
     try {
       const UsuarioCredenciales = await createUserWithEmailAndPassword(
@@ -38,6 +38,9 @@ const RegistroForm = () => {
         body: JSON.stringify({
           uid_usuario: User.uid,
           correo_electronico: correoElectronico,
+          nombre_completo: nombreCompleto,
+          telefono: telefono,
+          estado_cuenta: 1,
         }),
       });
       alert("Registro de usuario exitoso!");
@@ -47,6 +50,7 @@ const RegistroForm = () => {
         telefono: "",
         contraseña: "",
       });
+      navigate("/");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("El usuario ya está registrado.");

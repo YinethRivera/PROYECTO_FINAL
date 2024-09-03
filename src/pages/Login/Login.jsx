@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Login.css";
-import {
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 
 export default function Login() {
@@ -21,8 +18,6 @@ export default function Login() {
     });
   }, []);
 
-  
-
   const [registrar, setRegistrar] = useState(false);
   const ingresarUser = async (e) => {
     e.preventDefault();
@@ -38,7 +33,7 @@ export default function Login() {
     <div className="login-container">
       <div className="login-form">
         <h2 className="welcome-message">Bienvenido</h2>
-        <form onSubmit={()=>ingresarUser()}>
+        <form onSubmit={() => ingresarUser()}>
           <div className="input-group">
             <label htmlFor="usuario">Usuario: </label>
             <input

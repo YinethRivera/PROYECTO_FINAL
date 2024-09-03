@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { auth} from "../../firebase/credenciales";
+import { auth } from "../../firebase/credenciales";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import "./userProfile.css";
 import { db } from "/src/firebase/credenciales.js";
@@ -19,12 +19,18 @@ const UserProfile = () => {
     const fetchUserData = async () => {
       const user = auth.currentUser;
       if (user) {
+        console.log("Usuario autenticado:", user);
         const docRef = doc(db, "usuarios", user.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
+          console.log("Datos del documento:", docSnap.data());
           setUserData(docSnap.data());
           setNewData(docSnap.data());
+        } else {
+          console.log("No se encontró el documento");
         }
+      } else {
+        console.log("No hay usuario autenticado");
       }
     };
 
