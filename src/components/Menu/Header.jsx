@@ -46,9 +46,11 @@ function Header() {
         <div className="carrito">
           <CartIcon />
         </div>
-        <button onClick={ira}>Ingresar</button>
+        <div>
+          <button onClick={ira}>Ingresar</button>
 
-        <button onClick={CerrarSesion}>Cerrar Sesion </button>
+          <button onClick={CerrarSesion}>Cerrar Sesion </button>
+        </div>
       </header>
       <Outlet />
     </div>

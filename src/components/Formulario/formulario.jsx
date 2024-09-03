@@ -11,6 +11,7 @@ const RegistroForm = () => {
     correoElectronico: "",
     telefono: "",
     contraseña: "",
+    
   });
 
   const handleChange = (e) => {

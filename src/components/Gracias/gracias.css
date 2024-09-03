@@ -1,9 +1,11 @@
 .imagenInstagram img {
-  height: 220px;
+  width: 100%;
+  max-width: 220px; /* Maximum width for larger screens */
+  height: auto; /* Maintain aspect ratio */
   background-size: cover;
   position: absolute;
   bottom: 20px;
-  right: 40px;
+  right: 190px;
   border-radius: 4px;
 }
 
@@ -13,38 +15,41 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #fae5d3; /* Darker light brown for background */
+  background-color: #fae5d3;
   text-align: center;
   padding: 20px;
-  color: #784212; /* Lightest color for text for contrast */
+  color: #784212;
+  box-sizing: border-box;
 }
+
 .instagram_facebook {
   padding: 5px;
-  text-decoration:underline;
+  text-decoration: underline;
   color: rgb(63, 36, 5);
-  font-family:'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
-.redes{
+
+.redes {
   margin: 50px;
 }
 
 .gracias-container h1 {
   font-size: 2.5rem;
-  color: #784212; /* Light brown for the title */
+  color: #784212;
   margin-bottom: 20px;
 }
 
 .gracias-container p {
   font-size: 1.2rem;
   margin-bottom: 15px;
-  color: #873600; /* Yellowish shade for the text */
+  color: #873600;
 }
 
 .gracias-container button {
   padding: 10px 20px;
   font-size: 1.2rem;
   color: white;
-  background-color: #af601a; /* Light brown for button background */
+  background-color: #af601a;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -53,5 +58,56 @@
 }
 
 .gracias-container button:hover {
-  background-color: #935116; /* Darker shade of light brown for hover effect */
+  background-color: #935116;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gracias-container h1 {
+    font-size: 2rem;
+  }
+
+  .gracias-container p {
+    font-size: 1rem;
+  }
+
+  .gracias-container button {
+    padding: 8px 16px;
+    font-size: 1rem;
+  }
+
+  .imagenInstagram img {
+    max-width: 150px; /* Reduce the maximum width */
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .redes {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gracias-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .gracias-container p {
+    font-size: 0.9rem;
+  }
+
+  .gracias-container button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .imagenInstagram img {
+    max-width: 120px; /* Further reduce the maximum width */
+    bottom: 5px;
+    right: 5px;
+  }
+
+  .redes {
+    margin: 10px;
+  }
 }

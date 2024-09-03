@@ -1,5 +1,5 @@
 import React from "react";
-import "./gracias.css"
+import "./Gracias.css"
 import Instagram from "../../assets/instagram.jpg"
 
 const Gracias = () => {

@@ -1,11 +1,10 @@
-import React from 'react'
-import Gracias from '../../../components/Gracias/gracias';
+import React from "react";
+import Gracias from "../../../components/Gracias/Gracias";
 
-
-export const graciasPage = () => {
+export const GraciasPage = () => {
   return (
     <>
-      <Gracias/>
+      <Gracias />
     </>
   );
-}
+};

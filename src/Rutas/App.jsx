@@ -2,7 +2,7 @@ import Button from "../components/Button/index.jsx";
 import Menu from "../components/Menu/Header";
 import Product from "../components/Product";
 import { useFetch } from "../hook/useGetProducts.js";
-// import gracias from "../components/Gracias/gracias.jsx"
+
 
 export default function App() {
   const { data: electronics } = useFetch(
@@ -23,7 +23,6 @@ export default function App() {
 
   return (
     <>
-      <gracias />
       <Menu />
       <div className="category-container" name="jewelery">
         <h1 className="text-gradient">Joyeria</h1>
