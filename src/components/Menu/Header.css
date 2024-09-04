@@ -1,20 +1,38 @@
-
 body {
-  font-family: 'Cursive', sans-serif;
+  font-family: "Cursive", sans-serif;
   margin: 0;
-  background-color: #F0E68C; 
-  color: #000000; 
+  background-color: #f0e68c;
+  color: #000000;
+}
+
+.container {
+  display: flex;
+}
+
+.registeredUser {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 12px;
+}
+
+.userProfile {
+  padding: 5px;
+  border-radius: 10%;
+  background-color: #ceba9d;
+  text-decoration: none;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
 }
 
 header {
-  background-color: #C3A478; 
+  background-color: #c3a478;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 39px 40px;
-  position: relative; 
+  position: relative;
   font-size: 25px;
-  text-decoration:underline
 }
 
 .header .logo {
@@ -24,10 +42,11 @@ header {
 .header nav {
   display: flex;
   align-items: center;
+  text-decoration: underline;
 }
 
 .header nav a {
-  color: #000000; 
+  color: #000000;
   text-decoration: none;
   margin-right: 20px;
   transition: color 0.4s ease;
@@ -35,11 +54,11 @@ header {
 }
 
 .header nav a:hover {
-  color: #D2B48C; 
+  color: #d2b48c;
 }
 
 .header button {
-  background-color: #FFE4B5; 
+  background-color: #ffe4b5;
   color: #000000;
   border: none;
   cursor: pointer;
@@ -49,7 +68,7 @@ header {
 }
 
 .header button:hover {
-  background-color: #F0E68C; 
+  background-color: #f0e68c;
 }
 
 .contenido {
@@ -57,12 +76,12 @@ header {
   top: 0;
   left: 0;
   z-index: 5;
-  background-color: #C3A478; 
+  background-color: #c3a478;
   padding: 20px;
 }
 
 h3 {
-  color: #D2B48C; 
+  color: #d2b48c;
   margin: 20px 0;
 }
 
@@ -71,7 +90,7 @@ h3 {
   flex-wrap: nowrap;
   overflow-x: auto;
   width: 100%;
-  background-color: #F0E68C; 
+  background-color: #f0e68c;
 }
 
 .imagen {
@@ -83,19 +102,19 @@ h3 {
 }
 
 .carrito {
-  border: 1px solid #C3A478; 
+  border: 1px solid #c3a478;
   width: 50px;
-  height: 50px; 
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FFE4B5; 
-  border-radius: 4px; 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  background-color: #ffe4b5;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .user {
-  background-color: #D2B48C; 
+  background-color: #d2b48c;
   text-align: center;
   padding: 10px;
   border-radius: 4px;
@@ -105,8 +124,8 @@ h3 {
   position: absolute;
   top: 100px;
   right: 20px;
-  background-color: #FFE4B5;
-  border: 1px solid #F0E68C; 
+  background-color: #ffe4b5;
+  border: 1px solid #f0e68c;
   padding: 20px;
   z-index: 100;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -124,19 +143,19 @@ h3 {
 
 .header .formulario label {
   font-weight: bold;
-  color: #000000; 
+  color: #000000;
 }
 
 .header .formulario input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #F0E68C; 
+  border: 1px solid #f0e68c;
   border-radius: 4px;
   font-size: 14px;
 }
 
 .header .formulario button {
-  background-color: #FFE4B5; 
+  background-color: #ffe4b5;
   color: #000000;
   border: none;
   border-radius: 4px;
@@ -147,11 +166,8 @@ h3 {
 }
 
 .header .formulario button:hover {
-  background-color: #F0E68C; 
+  background-color: #f0e68c;
 }
-
-
-
 
 @media (max-width: 568px) {
   .header nav {

@@ -1,31 +1,38 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Login.css";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 export default function Login() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const [users, setUsers] = useState(null);
+  const { setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUsers(user);
-        console.log("usuario encontrado");
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!!user) {
+        setUser(user);
+        console.log("usuario encontrado", user);
+        navigate("/");
       } else {
         console.log("usuario no encontrado");
       }
     });
+    return () => unsubscribe();
   }, []);
 
-  const [registrar, setRegistrar] = useState(false);
   const ingresarUser = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, Email, Password);
       console.log("ingresaste a la cuenta");
+      navigate("/");
     } catch (error) {
-      console.log("error al ingresar a la cuenta", error);
+      console.error("Error al ingresar a la cuenta", error);
+      alert("Error al intentar iniciar sesión: " + error.message);
     }
   };
 
@@ -33,7 +40,7 @@ export default function Login() {
     <div className="login-container">
       <div className="login-form">
         <h2 className="welcome-message">Bienvenido</h2>
-        <form onSubmit={() => ingresarUser()}>
+        <form onSubmit={ingresarUser}>
           <div className="input-group">
             <label htmlFor="usuario">Usuario: </label>
             <input

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
 import Img from "../../assets/Logo.png";
 import { Link } from "react-scroll";
@@ -6,13 +6,15 @@ import CartIcon from "../CartIcons/CartIcon";
 import { Outlet, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
+import { UserContext } from "../../context/UserContext";
 
 function Header() {
-  const [activo, setactivo] = useState(false);
+  const { user, setUser } = useContext(UserContext);
 
   const CerrarSesion = async () => {
     try {
       await signOut(auth);
+      setUser(null);
       console.log("se cerro la sesion");
     } catch (error) {
       console.log("No se cerro la sesion");
@@ -46,10 +48,15 @@ function Header() {
         <div className="carrito">
           <CartIcon />
         </div>
-        <div>
-          <button onClick={ira}>Ingresar</button>
-
-          <button onClick={CerrarSesion}>Cerrar Sesion </button>
+        <div className="registeredUser">
+          {user ? (
+            <p className="userProfile">{user.email}</p>
+          ) : (
+            <button onClick={ira}>Ingresar</button>
+          )}
+          <div>
+            <button onClick={CerrarSesion}>Cerrar Sesion </button>
+          </div>
         </div>
       </header>
       <Outlet />
