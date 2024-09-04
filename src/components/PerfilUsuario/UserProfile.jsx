@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { auth } from "../../firebase/credenciales";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import "./userProfile.css";
 import { db } from "/src/firebase/credenciales.js";
+import { UserContext } from "../../context/UserContext";
 
 const UserProfile = () => {
+  const { user, setUser } = useContext(UserContext);
+
+  console.log("user en profile", user);
   const [userData, setUserData] = useState({
     nombreCompleto: "",
     correoElectronico: "",
@@ -37,6 +41,27 @@ const UserProfile = () => {
     fetchUserData();
   }, []);
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch(`/api/usuarios/${user.uid}`);
+        if (response.ok) {
+          const data = await response.json();
+          setUserData(data);
+          setNewData(data);
+        } else {
+          console.log("Error fetching user data");
+        }
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    if (user) {
+      fetchUserData();
+    }
+  }, [user]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewData({ ...newData, [name]: value });
@@ -64,7 +89,7 @@ const UserProfile = () => {
               type="text"
               id="nombreCompleto"
               name="nombreCompleto"
-              value={newData.nombreCompleto}
+              value={user.nombreCompleto}
               onChange={handleChange}
             />
           </div>

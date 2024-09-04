@@ -10,6 +10,8 @@ import { UserContext } from "../../context/UserContext";
 
 function Header() {
   const { user, setUser } = useContext(UserContext);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
   const CerrarSesion = async () => {
     try {
@@ -20,10 +22,25 @@ function Header() {
       console.log("No se cerro la sesion");
     }
   };
-  const navigate = useNavigate();
+
+  const handleUserProfile = () => {
+    navigate("/userprofile");
+    setDropdownOpen(false);
+  };
+
+  const handleSignOut = () => {
+    CerrarSesion();
+    setDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   const ira = () => {
     navigate("/login");
   };
+
   return (
     <div className="contenido">
       <header className="header">
@@ -50,13 +67,20 @@ function Header() {
         </div>
         <div className="registeredUser">
           {user ? (
-            <p className="userProfile">{user.email}</p>
+            <div className="dropdown">
+              <button className="dropdown-toggle" onClick={toggleDropdown}>
+                {user.email}
+              </button>
+              {dropdownOpen && (
+                <div className="dropdown-menu">
+                  <button onClick={handleUserProfile}>Perfil</button>
+                  <button onClick={handleSignOut}>Cerrar Sesión</button>
+                </div>
+              )}
+            </div>
           ) : (
             <button onClick={ira}>Ingresar</button>
           )}
-          <div>
-            <button onClick={CerrarSesion}>Cerrar Sesion </button>
-          </div>
         </div>
       </header>
       <Outlet />
