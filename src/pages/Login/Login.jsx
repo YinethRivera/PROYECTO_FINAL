@@ -3,32 +3,23 @@ import "./Login.css";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
+import useAuth, { UserContext } from "../../context/UserContext";
+import setAuthSession from "../../utils/set-auth-session";
 
 export default function Login() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const { setUser } = useContext(UserContext);
+  const { setUser } = useAuth();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!!user) {
-        setUser(user);
-        console.log("usuario encontrado", user);
-        navigate("/");
-      } else {
-        console.log("usuario no encontrado");
-      }
-    });
-    return () => unsubscribe();
-  }, []);
 
   const ingresarUser = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, Email, Password);
+      const resp = await signInWithEmailAndPassword(auth, Email, Password);
+
       console.log("ingresaste a la cuenta");
+      setUser(resp.user);
+      setAuthSession(resp.user)
       navigate("/");
     } catch (error) {
       console.error("Error al ingresar a la cuenta", error);

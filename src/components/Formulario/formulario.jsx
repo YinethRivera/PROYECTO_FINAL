@@ -3,6 +3,8 @@ import "./formulario.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 
 const RegistroForm = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ const RegistroForm = () => {
     telefono: "",
     contraseña: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -20,6 +23,11 @@ const RegistroForm = () => {
       [name]: value,
     });
   };
+
+    const toggleShowPassword = () => {
+      setShowPassword(!showPassword); 
+    };
+  
 
   const RegisterUser = async (e) => {
     const { correoElectronico, contraseña, nombreCompleto, telefono } =
@@ -100,19 +108,24 @@ const RegistroForm = () => {
             name="telefono"
             value={formData.telefono}
             onChange={handleChange}
+            pattern="[0-9]*"
+            maxLength={10}
             required
           />
         </div>
         <div className="grupo-formulario">
           <label htmlFor="contraseña">Contraseña</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="contraseña"
             name="contraseña"
             value={formData.contraseña}
             onChange={handleChange}
             required
           />
+          <span onClick={toggleShowPassword} className="icono-ojo">
+            {showPassword ? <FaEye /> : <FaEyeSlash />}
+          </span>
         </div>
         <button type="submit">Registrar</button>
       </form>

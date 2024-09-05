@@ -1,19 +1,16 @@
 import { useContext, useEffect, useState } from "react";
-import { auth } from "../../firebase/credenciales";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
 import "./userProfile.css";
-import { db } from "/src/firebase/credenciales.js";
 import { UserContext } from "../../context/UserContext";
 
 const UserProfile = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
-  console.log("user en profile", user);
+
   const [userData, setUserData] = useState({
     nombreCompleto: "",
     correoElectronico: "",
   });
-  const [editMode, setEditMode] = useState(false);
+  const [editMode] = useState(false);
   const [newData, setNewData] = useState({
     nombreCompleto: "",
     correoElectronico: "",
@@ -21,17 +18,18 @@ const UserProfile = () => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const user = auth.currentUser;
       if (user) {
-        console.log("Usuario autenticado:", user);
-        const docRef = doc(db, "usuarios", user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          console.log("Datos del documento:", docSnap.data());
-          setUserData(docSnap.data());
-          setNewData(docSnap.data());
-        } else {
-          console.log("No se encontró el documento");
+        try {
+          const response = await fetch(`/api/usuarios/${user.uid}`);
+          if (response.ok) {
+            const data = await response.json();
+            setUserData(data);
+            setNewData(data);
+          } else {
+            console.log("Error fetching user data");
+          }
+        } catch (error) {
+          console.log("Error:", error);
         }
       } else {
         console.log("No hay usuario autenticado");
@@ -39,42 +37,70 @@ const UserProfile = () => {
     };
 
     fetchUserData();
-  }, []);
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch(`/api/usuarios/${user.uid}`);
-        if (response.ok) {
-          const data = await response.json();
-          setUserData(data);
-          setNewData(data);
-        } else {
-          console.log("Error fetching user data");
-        }
-      } catch (error) {
-        console.log("Error:", error);
-      }
-    };
-
-    if (user) {
-      fetchUserData();
-    }
   }, [user]);
+
+  const updateUserData = async (userId, userData) => {
+    try {
+      const response = await fetch(`/api/usuarios/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+      if (response.ok) {
+        const updatedData = await response.json();
+
+        console.log(updatedData);
+      } else {
+        console.log("Error updating user data");
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
+
+  const deleteUser = async (userId) => {
+    try {
+      const response = await fetch(`/api/usuarios/${userId}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result);
+      } else {
+        console.log("Error deleting user");
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewData({ ...newData, [name]: value });
   };
 
+
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const user = auth.currentUser;
-    if (user) {
-      const docRef = doc(db, "usuarios", user.uid);
-      await updateDoc(docRef, newData);
-      setUserData(newData);
-      setEditMode(false);
+    try {
+      const response = await fetch(`/api/usuarios/${user.uid}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newData),
+      });
+      if (response.ok) {
+        setUserData(newData);
+        setEditMode(false);
+      } else {
+        console.log("Error updating user data");
+      }
+    } catch (error) {
+      console.log("Error:", error);
     }
   };
 
@@ -89,8 +115,9 @@ const UserProfile = () => {
               type="text"
               id="nombreCompleto"
               name="nombreCompleto"
-              value={user.nombreCompleto}
+              value={newData.nombreCompleto}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="input-group">
@@ -101,6 +128,7 @@ const UserProfile = () => {
               name="correoElectronico"
               value={newData.correoElectronico}
               onChange={handleChange}
+              required
             />
           </div>
           <button type="submit" className="submit-button">
@@ -120,11 +148,8 @@ const UserProfile = () => {
             <strong>Nombre Completo:</strong> {userData.nombreCompleto}
           </p>
           <p>
-            <strong>Correo Electrónico:</strong> {userData.correoElectronico}
+            <strong>Correo Electrónico:</strong> {user.email}
           </p>
-          <button onClick={() => setEditMode(true)} className="edit-button">
-            Editar
-          </button>
         </div>
       )}
     </div>

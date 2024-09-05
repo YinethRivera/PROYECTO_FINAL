@@ -7,6 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import { UserContext } from "../../context/UserContext";
+import setAuthSession from "../../utils/set-auth-session";
 
 function Header() {
   const { user, setUser } = useContext(UserContext);
@@ -17,6 +18,7 @@ function Header() {
     try {
       await signOut(auth);
       setUser(null);
+      sessionStorage.removeItem('AUTH')
       console.log("se cerro la sesion");
     } catch (error) {
       console.log("No se cerro la sesion");
