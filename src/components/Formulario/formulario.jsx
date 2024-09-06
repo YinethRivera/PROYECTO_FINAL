@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import "./formulario.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
-
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const RegistroForm = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +12,9 @@ const RegistroForm = () => {
     contraseña: "",
   });
 
+  // Estado para mostrar/ocultar la contraseña
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -21,7 +23,13 @@ const RegistroForm = () => {
     });
   };
 
+  // Función para alternar la visibilidad de la contraseña
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword); // Cambia el estado para mostrar/ocultar contraseña
+  };
+
   const RegisterUser = async (e) => {
+    e.preventDefault();
     const { correoElectronico, contraseña } = formData;
 
     try {
@@ -55,16 +63,10 @@ const RegistroForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    RegisterUser();
-    console.log("Datos del formulario:", formData);
-  };
-
   return (
     <div className="contenedor-formulario">
       <h2>Registro de Usuario</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={RegisterUser}>
         <div className="grupo-formulario">
           <label htmlFor="nombreCompleto">Nombre Completo</label>
           <input
@@ -100,14 +102,20 @@ const RegistroForm = () => {
         </div>
         <div className="grupo-formulario">
           <label htmlFor="contraseña">Contraseña</label>
-          <input
-            type="password"
-            id="contraseña"
-            name="contraseña"
-            value={formData.contraseña}
-            onChange={handleChange}
-            required
-          />
+          <div className="input-contraseña">
+            <input
+              type={showPassword ? "text" : "password"} // Cambia entre "text" y "password"
+              id="contraseña"
+              name="contraseña"
+              value={formData.contraseña}
+              onChange={handleChange}
+              required
+            />
+            <span onClick={togglePasswordVisibility} className="icono-ojito">
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+              
+            </span>
+          </div>
         </div>
         <button type="submit">Registrar</button>
       </form>

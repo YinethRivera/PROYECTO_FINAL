@@ -2,7 +2,7 @@ import React from "react";
 import "./gracias.css"
 import Instagram from "../../assets/instagram.jpg"
 
-const Gracias = () => {
+export const Gracias = () => {
   return (
     <div className="gracias-container">
       <h1>¡Gracias por tu compra!</h1>

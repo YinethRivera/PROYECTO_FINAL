@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import { useNavigate } from "react-router-dom"; 
 import "./Carrito.css";
 
 const Carrito = ({ cerrarCarrito }) => {
@@ -10,7 +10,7 @@ const Carrito = ({ cerrarCarrito }) => {
 
 
     const handleCompra = () => {
-      // Lógica adicional para la compra si es necesario
+      
       navigate("/gracias"); // Redirige a la página de "Gracias"
     };
 
