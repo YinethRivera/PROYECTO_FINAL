@@ -1,12 +1,12 @@
 // import Button from "../components/Button/index.jsx";
 import Menu from "../components/Menu/Header";
 import Product from "../components/Product";
-import useAuth from "../context/UserContext.jsx";
+// import useAuth from "../context/UserContext.jsx";
 import { useFetch } from "../hook/useGetProducts.js";
 
 export default function App() {
-  const { user } = useAuth();
-  console.log(user);
+  // const { user } = useAuth();
+  // console.log(user);
 
   const { data: electronics } = useFetch(
     "https://fakestoreapi.com/products/category/electronics"

@@ -3,7 +3,7 @@ import "./Login.css";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import { useNavigate } from "react-router-dom";
-import useAuth, { UserContext } from "../../context/UserContext";
+// import useAuth, { UserContext } from "../../context/UserContext";
 import setAuthSession from "../../utils/set-auth-session";
 
 export default function Login() {
