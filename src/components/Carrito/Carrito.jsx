@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom"; 
 import "./Carrito.css";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/credenciales";
+
+
 
 const Carrito = ({ cerrarCarrito }) => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
-  const navigate = useNavigate(); // Usa useNavigate para la redirección
-
+  const navigate = useNavigate(); 
+const [User, setUser] = useState(null)
+  useEffect(() => {
+    onAuthStateChanged(auth, (user)=>{
+      if (user) {
+        setUser(user)
+      }
+    })
+  }, [])
+  
 
     const handleCompra = () => {
-      
-      navigate("/gracias"); // Redirige a la página de "Gracias"
+      if (User) {
+        navigate("/gracias"); // Redirige a la página de "Gracias"
+      } else {
+        navigate("/login"); 
+      }
     };
 
   return (

@@ -3,7 +3,7 @@ import { CartContext } from "./CartContext";
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) ?? []
+    JSON.parse(localStorage.getItem("cart")) || []
   );
 
 const addToCart = (product) => {

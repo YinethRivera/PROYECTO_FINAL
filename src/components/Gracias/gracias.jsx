@@ -47,6 +47,13 @@ export const Gracias = () => {
           nueva adquisición al máximo. Si tienes alguna duda o necesitas más
           información, no dudes en contactarnos.
         </a>
+        <p>
+          También puedes comunicarte a través de
+          <a href="https://wa.me/573107172678" target="_blank">
+            WhatsApp
+          </a>
+          .
+        </p>
       </div>
     </div>
   );
