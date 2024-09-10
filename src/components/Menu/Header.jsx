@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import Img from "../../assets/Logo.png";
 import { Link } from "react-scroll";
@@ -8,7 +8,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 
 function Header() {
-  const [activo, setactivo] = useState(false);
+  // const [activo, setactivo] = useState(false);
 
   const CerrarSesion = async () => {
     try {

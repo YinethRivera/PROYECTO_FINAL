@@ -1,4 +1,3 @@
-
 body {
   font-family: 'Cursive', sans-serif;
   margin: 0;
@@ -11,14 +10,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 39px 40px;
+  padding: 20px; /* Ajustado para pantallas pequeñas */
   position: relative; 
-  font-size: 25px;
-  text-decoration:underline
+  font-size: 1.5rem; /* Ajustado para pantallas pequeñas */
+  text-decoration:underline;
 }
 
 .header .logo {
-  width: 100px;
+  width: 80px; /* Ajustado para pantallas pequeñas */
 }
 
 .header nav {
@@ -29,7 +28,7 @@ header {
 .header nav a {
   color: #000000; 
   text-decoration: none;
-  margin-right: 20px;
+  margin-right: 15px; /* Ajustado para pantallas pequeñas */
   transition: color 0.4s ease;
   font-weight: bold;
 }
@@ -39,13 +38,11 @@ header {
 }
 
 .header button {
-  background-color: #FFE4B5; 
-  color: #000000;
-  border: none;
   cursor: pointer;
-  padding: 10px 15px;
+  padding: 8px 12px; /* Ajustado para pantallas pequeñas */
   border-radius: 4px;
   transition: background-color 0.3s ease;
+  font-size: 0.9rem; /* Ajustado para pantallas pequeñas */
 }
 
 .header button:hover {
@@ -58,12 +55,12 @@ header {
   left: 0;
   z-index: 5;
   background-color: #C3A478; 
-  padding: 20px;
+  padding: 10px; /* Ajustado para pantallas pequeñas */
 }
 
 h3 {
   color: #D2B48C; 
-  margin: 20px 0;
+  margin: 15px 0; /* Ajustado para pantallas pequeñas */
 }
 
 .imagenes {
@@ -75,8 +72,8 @@ h3 {
 }
 
 .imagen {
-  height: 120px;
-  width: 200px;
+  height: 100px; /* Ajustado para pantallas pequeñas */
+  width: 180px; /* Ajustado para pantallas pequeñas */
   margin-left: 5px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -84,8 +81,8 @@ h3 {
 
 .carrito {
   border: 1px solid #C3A478; 
-  width: 50px;
-  height: 50px; 
+  width: 40px; /* Ajustado para pantallas pequeñas */
+  height: 40px; /* Ajustado para pantallas pequeñas */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,17 +94,17 @@ h3 {
 .user {
   background-color: #D2B48C; 
   text-align: center;
-  padding: 10px;
+  padding: 8px; /* Ajustado para pantallas pequeñas */
   border-radius: 4px;
 }
 
 .header .formulario {
   position: absolute;
-  top: 100px;
-  right: 20px;
+  top: 80px; /* Ajustado para pantallas pequeñas */
+  right: 10px; /* Ajustado para pantallas pequeñas */
   background-color: #FFE4B5;
   border: 1px solid #F0E68C; 
-  padding: 20px;
+  padding: 15px; /* Ajustado para pantallas pequeñas */
   z-index: 100;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -119,7 +116,7 @@ h3 {
 }
 
 .header .formulario .campo {
-  margin-bottom: 15px;
+  margin-bottom: 12px; /* Ajustado para pantallas pequeñas */
 }
 
 .header .formulario label {
@@ -129,10 +126,10 @@ h3 {
 
 .header .formulario input {
   width: 100%;
-  padding: 10px;
+  padding: 8px; /* Ajustado para pantallas pequeñas */
   border: 1px solid #F0E68C; 
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 0.9rem; /* Ajustado para pantallas pequeñas */
 }
 
 .header .formulario button {
@@ -141,26 +138,34 @@ h3 {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  padding: 10px;
+  padding: 8px; /* Ajustado para pantallas pequeñas */
   margin-top: 10px;
   transition: background-color 0.3s ease;
+  font-size: 0.9rem; /* Ajustado para pantallas pequeñas */
 }
 
 .header .formulario button:hover {
   background-color: #F0E68C; 
 }
 
-
-
-
 @media (max-width: 568px) {
   .header nav {
     flex-direction: column;
+    align-items: center;
   }
 
   .header .formulario {
-    top: 60px;
-    right: 10px;
+    top: 70px; /* Ajustado para pantallas más pequeñas */
+    right: 5px; /* Ajustado para pantallas más pequeñas */
+  }
+
+  .header button {
+    padding: 6px 10px; /* Ajustado para pantallas pequeñas */
+    font-size: 0.8rem; /* Ajustado para pantallas pequeñas */
+  }
+
+  .header .logo {
+    width: 60px; /* Ajustado para pantallas pequeñas */
   }
 }
 
@@ -172,5 +177,22 @@ h3 {
   .header {
     flex-direction: column;
     align-items: center;
+    font-size: 1.2rem; /* Ajustado para pantallas pequeñas */
+  }
+
+  .header .formulario {
+    top: 50px; /* Ajustado para pantallas más pequeñas */
+    right: 5px; /* Ajustado para pantallas más pequeñas */
+    padding: 15px; /* Ajustado para pantallas más pequeñas */
+  }
+
+  .imagenes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagen {
+    height: 80px; /* Ajustado para pantallas pequeñas */
+    width: 160px; /* Ajustado para pantallas pequeñas */
   }
 }

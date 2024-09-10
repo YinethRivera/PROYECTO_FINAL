@@ -1,20 +1,22 @@
 import React from "react";
-import "./gracias.css"
-import Instagram from "../../assets/instagram.jpg"
+import "./gracias.css";
+import Instagram from "../../assets/instagram.jpg";
 
 export const Gracias = () => {
   return (
     <div className="gracias-container">
       <h1>¡Gracias por tu compra!</h1>
       <p>
-        Tu pedido ha sido recibido y está siendo procesado. Te estará llegando
-        dentro de los próximos 5 días. ¡¡Muchas gracias por confiar en Yikart!!
+        "¡Gracias por tu compra! Nos complace informarte que hemos recibido tu
+        pedido y actualmente está siendo procesado con el mayor cuidado y
+        atención. Te estará llegando dentro de los próximos 5 días. ¡¡Muchas
+        gracias por confiar en Yikart!!
       </p>
-      <p>Esperamos que disfrutes de tu compra. ¡Te esperamos pronto!</p>
+      <p>
+        ¡Muchas gracias por elegirnos y esperamos verte nuevamente pronto en
+        Yikart!"
+      </p>
 
-      <div className="imagenInstagram">
-        <img src={Instagram} alt="" />
-      </div>
       <button onClick={() => (window.location.href = "/")}>
         Volver a la tienda
       </button>
@@ -23,21 +25,28 @@ export const Gracias = () => {
         <h1>
           <a
             className="instagram_facebook"
-            href="https://www.instagram.com/yikart.03?igsh=MW0weDZnaGoyd2dkeQ=="
-          >
-            instagram
-          </a>
-        </h1>
-        <a>Recuerda seguirnos en nuetras redes sociales c:</a>
-
-        <h1>
-          <a
-            className="instagram_facebook"
             href="https://www.facebook.com/share/17rTfhVsAq/?mibextid=qi2Omg"
           >
             Facebook
           </a>
         </h1>
+        <h1>
+          <a
+            className="instagram_facebook"
+            href="https://www.instagram.com/yikart.03?igsh=MW0weDZnaGoyd2dkeQ=="
+          >
+            Instagram
+          </a>
+        </h1>
+        <div className="imagenInstagram">
+          <img src={Instagram} alt="Instagram" />
+        </div>
+
+        <a className="texto_final">
+          En Yikart, valoramos mucho tu confianza y queremos que disfrutes de tu
+          nueva adquisición al máximo. Si tienes alguna duda o necesitas más
+          información, no dudes en contactarnos.
+        </a>
       </div>
     </div>
   );

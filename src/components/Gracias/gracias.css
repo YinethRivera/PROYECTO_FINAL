@@ -1,50 +1,62 @@
 .imagenInstagram img {
-  height: 220px;
-  background-size: cover;
-  position: absolute;
-  bottom: 20px;
-  right: 40px;
-  border-radius: 4px;
+  width: 100%; 
+  max-width: 250px; /* Aumentado el tamaño máximo de la imagen */
+  border-radius: 4px; 
+  border: 2px solid #8B5E3C; /* Marrón tierra para el borde */
+}
+
+.texto_final {
+  background-color: #d4b895; /* Tonos beige-tierra suaves */
+  color: #3e2614; /* Marrón oscuro */
+  font-size: 1.5rem; /* Reducido el tamaño del texto */
 }
 
 .gracias-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #fae5d3; /* Darker light brown for background */
+  background-color: #f5e3c3; /* Fondo beige claro */
   text-align: center;
   padding: 20px;
-  color: #784212; /* Lightest color for text for contrast */
+  color: #7b4a31; /* Marrón medio para el texto */
+  font-size: 1.2rem; /* Reducido el tamaño del texto */
 }
+
 .instagram_facebook {
   padding: 5px;
-  text-decoration:underline;
-  color: rgb(63, 36, 5);
-  font-family:'Courier New', Courier, monospace;
+  text-decoration: underline;
+  color: #5a3a2b; /* Marrón oscuro para el texto con subrayado */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem; /* Reducido el tamaño del texto */
 }
-.redes{
+
+.redes {
   margin: 50px;
+  font-size: 1.4rem; /* Reducido el tamaño de la fuente para todos los elementos dentro de .redes */
+}
+
+.redes h1 {
+  font-size: 2.5rem; /* Reducido el tamaño del título */
+  margin-bottom: 20px;
 }
 
 .gracias-container h1 {
-  font-size: 2.5rem;
-  color: #784212; /* Light brown for the title */
+  font-size: 2.8rem; /* Reducido el tamaño del título */
+  color: #7b4a31; /* Marrón medio para el título */
   margin-bottom: 20px;
 }
 
 .gracias-container p {
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* Reducido el tamaño del texto */
   margin-bottom: 15px;
-  color: #873600; /* Yellowish shade for the text */
+  color: #8f5a3a; /* Marrón más cálido para el texto */
 }
 
 .gracias-container button {
-  padding: 10px 20px;
-  font-size: 1.2rem;
+  padding: 10px 20px; /* Reducido el tamaño del botón */
+  font-size: 1.4rem; /* Reducido el tamaño del texto del botón */
   color: white;
-  background-color: #af601a; /* Light brown for button background */
+  background-color: #a76f3c; /* Marrón cálido para el botón */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -53,5 +65,51 @@
 }
 
 .gracias-container button:hover {
-  background-color: #935116; /* Darker shade of light brown for hover effect */
+  background-color: #8b5e3c; /* Marrón más oscuro para el hover */
+}
+
+@media (max-width: 600px) {
+  .imagenInstagram img {
+    max-width: 200px; /* Ajustado para dispositivos móviles */
+  }
+
+  .gracias-container h1 {
+    font-size: 1.6rem; /* Reducido el tamaño del título en dispositivos móviles */
+  }
+
+  .gracias-container p {
+    font-size: 1.2rem;
+  }
+
+  .gracias-container button {
+    padding: 8px 16px;
+    font-size: 1.2rem; /* Reducido el tamaño del texto del botón en dispositivos móviles */
+  }
+
+  .redes {
+    margin: 30px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .imagenInstagram img {
+    max-width: 220px; /* Ajustado para pantallas medianas */
+  }
+
+  .gracias-container h1 {
+    font-size: 2.4rem; /* Reducido el tamaño del título en pantallas medianas */
+  }
+
+  .gracias-container p {
+    font-size: 1.4rem; /* Reducido el tamaño del texto en pantallas medianas */
+  }
+
+  .gracias-container button {
+    padding: 8px 18px;
+    font-size: 1.4rem; /* Reducido el tamaño del texto del botón en pantallas medianas */
+  }
+
+  .redes {
+    margin: 40px;
+  }
 }

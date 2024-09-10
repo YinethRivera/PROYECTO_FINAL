@@ -3,12 +3,6 @@
 .category-container{
     text-align: center;
 }
-.text-gradient{
-    font-size: 40px;
-    font-weight: bold;
-    background-image: linear-gradient(to right,blue,yellow, red ,green);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;   
+.text-titulo{
+color: black; 
 }

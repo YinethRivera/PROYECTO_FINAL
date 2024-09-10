@@ -6,7 +6,7 @@ const Product = ({ image, title, description, price}) => {
   const {addToCart} = useContext(CartContext);
 
 const handleClick = () => {
-const product = { image, title, description, price, id: title }; // Aquí asumimos que el título es único para simplificar
+const product = { image, title, description, price, id: title }; 
  addToCart(product);
 
   };

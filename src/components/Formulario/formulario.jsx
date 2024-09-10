@@ -12,7 +12,7 @@ const RegistroForm = () => {
     contraseña: "",
   });
 
-  // Estado para mostrar/ocultar la contraseña
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
@@ -23,9 +23,8 @@ const RegistroForm = () => {
     });
   };
 
-  // Función para alternar la visibilidad de la contraseña
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword); // Cambia el estado para mostrar/ocultar contraseña
+    setShowPassword(!showPassword); 
   };
 
   const RegisterUser = async (e) => {
@@ -104,7 +103,7 @@ const RegistroForm = () => {
           <label htmlFor="contraseña">Contraseña</label>
           <div className="input-contraseña">
             <input
-              type={showPassword ? "text" : "password"} // Cambia entre "text" y "password"
+              type={showPassword ? "text" : "password"} 
               id="contraseña"
               name="contraseña"
               value={formData.contraseña}

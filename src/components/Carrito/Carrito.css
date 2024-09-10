@@ -87,7 +87,6 @@ body {
 .carritoCo button {
   
   margin-left: 100px;
-  background-color: #C3A478; 
   color: #000000; 
   border: 2px solid #000000; 
   padding: 12px 20px; 
@@ -137,7 +136,6 @@ button:hover {
   .carritoCo button {
     padding: 10px 20px; /* Reducir padding en pantallas pequeñas */
     margin-top: 10px;
-    width: 100%; /* Hace que el botón ocupe todo el ancho disponible */
     box-sizing: border-box; /* Asegura que el padding y el ancho se calculen correctamente */
   }
 }

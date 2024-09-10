@@ -27,7 +27,7 @@ const addToCart = (product) => {
             ? { ...item, quantity: item.quantity - 1 }
             : item
         )
-        .filter((item) => item.quantity > 0); // Filtra los productos con cantidad 0
+        .filter((item) => item.quantity > 0); 
             localStorage.setItem("cart", JSON.stringify(updatedCart));
             console.log(updatedCart);
       return updatedCart;
