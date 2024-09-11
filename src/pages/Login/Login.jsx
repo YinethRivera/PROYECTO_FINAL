@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
 import "./Login.css";
-import {
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [users, setUsers] = useState(null);
+  const navigate = useNavigate();
+
+
+  const handleRedirectApp = () => {
+    navigate("/formulario")
+  }
+
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUsers(user);
+    onAuthStateChanged(auth, (users) => {
+      if (users) {
+        setUsers(users);
         console.log("usuario encontrado");
       } else {
         console.log("usuario no encontrado");
@@ -21,14 +26,12 @@ export default function Login() {
     });
   }, []);
 
-  
-
-  const [registrar, setRegistrar] = useState(false);
   const ingresarUser = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     try {
       await signInWithEmailAndPassword(auth, Email, Password);
       console.log("ingresaste a la cuenta");
+      navigate("/"); // Redirigir  después de iniciar sesión
     } catch (error) {
       console.log("error al ingresar a la cuenta", error);
     }
@@ -38,7 +41,7 @@ export default function Login() {
     <div className="login-container">
       <div className="login-form">
         <h2 className="welcome-message">Bienvenido</h2>
-        <form onSubmit={()=>ingresarUser()}>
+        <form onSubmit={ingresarUser}>
           <div className="input-group">
             <label htmlFor="usuario">Usuario: </label>
             <input
@@ -66,9 +69,9 @@ export default function Login() {
             Ingresar
           </button>
           <p>¿Aun no estás registrado? </p>
-          <a href="/formulario">
-            <button type="button">registrate</button>
-          </a>
+          <button type="button" onClick={handleRedirectApp}>
+            Registrate
+          </button>
         </form>
       </div>
     </div>

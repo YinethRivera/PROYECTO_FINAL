@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "./Carrito.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 
-
-
 const Carrito = ({ cerrarCarrito }) => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
-  const navigate = useNavigate(); 
-const [User, setUser] = useState(null)
-  useEffect(() => {
-    onAuthStateChanged(auth, (user)=>{
-      if (user) {
-        setUser(user)
-      }
-    })
-  }, [])
-  
+  const navigate = useNavigate();
+  const [User, setUser] = useState(null);
 
-    const handleCompra = () => {
-      if (User) {
-        navigate("/gracias"); // Redirige a la página de "Gracias"
+  // Controlar autenticación del usuario
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user); // Usuario autenticado
       } else {
-        navigate("/login"); 
+        setUser(null); // No hay usuario autenticado
       }
-    };
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleCompra = () => {
+    if (User) {
+      navigate("/gracias"); // Si el usuario está autenticado, redirigir a la página de gracias
+    } else {
+      navigate("/login"); // Si no está autenticado, redirigir al registro
+    }
+  };
 
   return (
     <div>
@@ -38,25 +40,23 @@ const [User, setUser] = useState(null)
       <div className="">
         {cart.length === 0 ? (
           <div className="no-productos">
-            <p> no hay productos c:</p>
+            <p>No hay productos c:</p>
           </div>
         ) : (
           <>
             <div className="contenido">
               {cart.map((product, idx) => (
-                <div className="carritoCo" key={idx} style={{}}>
+                <div className="carritoCo" key={idx}>
                   <img
                     className="tamaños"
                     src={product.image}
                     alt={product.name}
                   />
-
                   <p>
                     {product.description.length > 50
                       ? `${product.description.slice(0, 50)}...`
                       : product.description}
                   </p>
-
                   <p>{product.price}</p>
                   <p>Cantidad: {product.quantity}</p>
                   <button onClick={() => removeFromCart(product)}>
@@ -65,7 +65,7 @@ const [User, setUser] = useState(null)
                 </div>
               ))}
               <button onClick={() => clearCart()}>Vaciar carrito</button>
-              <button onClick={handleCompra}>Comprar</button> 
+              <button onClick={handleCompra}>Comprar</button>
             </div>
           </>
         )}

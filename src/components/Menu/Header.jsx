@@ -18,6 +18,7 @@ function Header() {
       console.log("No se cerro la sesion");
     }
   };
+  
   const navigate = useNavigate();
   const ira = () => {
     navigate("/login");
