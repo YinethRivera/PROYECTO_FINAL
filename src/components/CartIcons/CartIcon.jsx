@@ -7,11 +7,14 @@ const CartIcon = () => {
   const { cart } = useContext(CartContext);
   const [showCart, setShowCart] = useState(false);
 
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalItems = cart.id_producto.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   const cerrarCarrito = () => {
-    setShowCart(!showCart)
-  }
+    setShowCart(!showCart);
+  };
 
   return (
     <div className={styles.iconWrapper}>

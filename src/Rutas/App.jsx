@@ -1,8 +1,6 @@
-// import Button from "../components/Button/index.jsx";
 import Menu from "../components/Menu/Header";
 import Product from "../components/Product";
 import { useFetch } from "../hook/useGetProducts.js";
-import Gracias from "../components/Gracias/Gracias.jsx";
 
 export default function App() {
   const { data: electronics } = useFetch(

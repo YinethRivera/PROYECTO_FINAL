@@ -15,9 +15,9 @@ const Carrito = ({ cerrarCarrito }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user); // Usuario autenticado
+        setUser(user); // si haqy Usuario 
       } else {
-        setUser(null); // No hay usuario autenticado
+        setUser(null); // No hay 
       }
     });
     return () => unsubscribe();
@@ -25,9 +25,9 @@ const Carrito = ({ cerrarCarrito }) => {
 
   const handleCompra = () => {
     if (User) {
-      navigate("/gracias"); // Si el usuario está autenticado, redirigir a la página de gracias
+      navigate("/gracias");
     } else {
-      navigate("/login"); // Si no está autenticado, redirigir al registro
+      navigate("/login"); 
     }
   };
 
@@ -45,7 +45,7 @@ const Carrito = ({ cerrarCarrito }) => {
         ) : (
           <>
             <div className="contenido">
-              {cart.map((product, idx) => (
+              {cart.id_producto.map((product, idx) => (
                 <div className="carritoCo" key={idx}>
                   <img
                     className="tamaños"

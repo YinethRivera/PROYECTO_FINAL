@@ -1,24 +1,55 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
+    JSON.parse(localStorage.getItem("cart")) || { id_producto: [] }
   );
 
-const addToCart = (product) => {
-  let newCart = [];
-  const existingProdut = cart.find((item) => item.id === product.id);
-  if (existingProdut) {
-    newCart = cart.map((item) =>
-      item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+  console.log(cart);
+
+  const startCart = (newCart) => {
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    setCart(newCart);
+  };
+
+  const addToCart = async (product) => {
+    let newCart = {};
+    const existingProdut = cart.id_producto.find(
+      (item) => item.id === product.id
     );
-  } else {
-    newCart = [...cart, { ...product, quantity: 1 }];
-  }
-  localStorage.setItem("cart", JSON.stringify(newCart));
-  setCart(newCart);
-};
+    if (existingProdut) {
+      newCart = {
+        ...cart,
+        id_producto: cart.id_producto.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ),
+      };
+    } else {
+      newCart = {
+        ...cart,
+        id_producto: [...cart.id_producto, product],
+      };
+    }
+
+    try {
+      await fetch(`http://localhost:3000/carrito/${cart.id_carrito}`, {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          id_producto: newCart.id_producto,
+        }),
+      }).then((resp) => resp.json());
+
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      setCart(newCart);
+    } catch (error) {
+      //
+    }
+  };
+
   const removeFromCart = (product) => {
     setCart((prevState) => {
       const updatedCart = prevState
@@ -27,9 +58,9 @@ const addToCart = (product) => {
             ? { ...item, quantity: item.quantity - 1 }
             : item
         )
-        .filter((item) => item.quantity > 0); 
-            localStorage.setItem("cart", JSON.stringify(updatedCart));
-            console.log(updatedCart);
+        .filter((item) => item.quantity > 0);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      console.log(updatedCart);
       return updatedCart;
     });
   };
@@ -41,9 +72,13 @@ const addToCart = (product) => {
 
   return (
     <CartContext.Provider
-      value={{ cart,addToCart, removeFromCart, clearCart }}
+      value={{ cart, startCart, addToCart, removeFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>
   );
 };
+
+const useCart = () => useContext(CartContext);
+
+export default useCart;

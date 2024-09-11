@@ -4,8 +4,10 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import useCart from "../../context/CartProvider";
 
 const RegistroForm = () => {
+  const { startCart } = useCart();
   const [formData, setFormData] = useState({
     nombreCompleto: "",
     telefono: "",
@@ -62,7 +64,17 @@ const RegistroForm = () => {
           correo_electronico: correoElectronico,
         }),
       });
-      alert("Registro de usuario exitoso!");
+
+      const resp = await fetch("http://localhost:3000/carrito", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          id_producto: [],
+          id_usuario: User.uid,
+        }),
+      }).then((resp) => resp.json());
+
+      startCart(resp);
 
       setFormData({
         nombreCompleto: "",
@@ -71,7 +83,7 @@ const RegistroForm = () => {
         contraseña: "",
       });
 
-      navigate("/"); // Redirige al usuario tras un registro exitoso
+      navigate("/"); // Redirige
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         setErrorMessage("El usuario ya está registrado.");
@@ -92,7 +104,6 @@ const RegistroForm = () => {
     <div className="contenedor-formulario">
       <h2>Registro de Usuario</h2>
       {errorMessage && <p className="error">{errorMessage}</p>}{" "}
-      {/* Muestra el mensaje de error si existe */}
       <form onSubmit={handleSubmit}>
         <div className="grupo-formulario">
           <label htmlFor="nombreCompleto">Nombre Completo</label>
