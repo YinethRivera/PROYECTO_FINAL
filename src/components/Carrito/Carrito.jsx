@@ -15,9 +15,9 @@ const Carrito = ({ cerrarCarrito }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user); // si haqy Usuario 
+        setUser(user); // si haqy Usuario
       } else {
-        setUser(null); // No hay 
+        setUser(null); // No hay
       }
     });
 
@@ -28,10 +28,9 @@ const Carrito = ({ cerrarCarrito }) => {
     if (User) {
       navigate("/gracias");
     } else {
-      navigate("/login"); 
+      navigate("/login");
     }
   };
-
 
   return (
     <div>
@@ -40,14 +39,14 @@ const Carrito = ({ cerrarCarrito }) => {
       </span>
 
       <div className="">
-        {cart.length === 0 ? (
+        {cart.id_producto?.length === 0 ? (
           <div className="no-productos">
             <p>No hay productos c:</p>
           </div>
         ) : (
           <>
             <div className="contenido">
-              {cart.id_producto.map((product, idx) => (
+              {cart.id_producto?.map((product, idx) => (
                 <div className="carritoCo" key={idx}>
                   <img
                     className="tamaños"

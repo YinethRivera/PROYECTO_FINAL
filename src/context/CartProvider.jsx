@@ -15,13 +15,14 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (product) => {
     let newCart = {};
-    const existingProdut = cart.id_producto.find(
+    const existingProdut = cart.id_producto?.find(
       (item) => item.id === product.id
     );
+
     if (existingProdut) {
       newCart = {
         ...cart,
-        id_producto: cart.id_producto.map((item) =>
+        id_producto: cart.id_producto?.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
@@ -30,7 +31,10 @@ export const CartProvider = ({ children }) => {
     } else {
       newCart = {
         ...cart,
-        id_producto: [...cart.id_producto, { ...product, quantity: 1 }],
+        id_producto: [
+          ...(cart?.id_producto || []),
+          { ...product, quantity: 1 },
+        ],
       };
     }
 
@@ -42,25 +46,24 @@ export const CartProvider = ({ children }) => {
           id_producto: newCart.id_producto,
         }),
       }).then((resp) => resp.json());
-      console.log('Hasta aqui llego');
-      
 
       localStorage.setItem("cart", JSON.stringify(newCart));
       setCart(newCart);
     } catch (error) {
-      //
+      console.error("error al actualizar el carrito", error);
     }
   };
 
   const removeFromCart = (product) => {
     setCart((prevState) => {
-      const updatedCart = prevState
-        .map((item) =>
+      const updatedProducts = prevState.id_producto
+        ?.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity - 1 }
             : item
         )
         .filter((item) => item.quantity > 0);
+      const updatedCart = { ...prevState, id_producto: updatedProducts };
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       console.log(updatedCart);
       return updatedCart;
@@ -68,8 +71,9 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    localStorage.setItem("cart", JSON.stringify({id_producto:[] }));
-    setCart({ id_producto: [] });
+    const emptyCart = { id_producto: [] };
+    localStorage.setItem("cart", JSON.stringify(emptyCart));
+    setCart(emptyCart);
   };
 
   return (
