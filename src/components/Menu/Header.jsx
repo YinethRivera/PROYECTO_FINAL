@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import Img from "../../assets/Logo.png";
 import { Link } from "react-scroll";
@@ -6,18 +6,24 @@ import CartIcon from "../CartIcons/CartIcon";
 import { Outlet, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
+import { CartContext } from "../../context/CartContext";
+
+
 
 function Header() {
-  // const [activo, setactivo] = useState(false);
+const {clearCart} = useContext(CartContext)
+
 
   const CerrarSesion = async () => {
     try {
       await signOut(auth);
+      clearCart(); 
       console.log("se cerro la sesion");
     } catch (error) {
       console.log("No se cerro la sesion");
     }
   };
+  
   
   const navigate = useNavigate();
   const ira = () => {
@@ -43,6 +49,8 @@ function Header() {
             </Link>
           </nav>
         </div>
+
+
 
         <div className="carrito">
           <CartIcon />

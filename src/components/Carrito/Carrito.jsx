@@ -20,6 +20,7 @@ const Carrito = ({ cerrarCarrito }) => {
         setUser(null); // No hay 
       }
     });
+
     return () => unsubscribe();
   }, []);
 
@@ -30,6 +31,7 @@ const Carrito = ({ cerrarCarrito }) => {
       navigate("/login"); 
     }
   };
+
 
   return (
     <div>

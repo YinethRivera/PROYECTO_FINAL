@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Login.css";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 export default function Login() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [users, setUsers] = useState(null);
   const navigate = useNavigate();
-
+  const { startCart } = useContext(CartContext);
 
   const handleRedirectApp = () => {
-    navigate("/formulario")
-  }
+    navigate("/formulario");
+  };
 
   useEffect(() => {
     onAuthStateChanged(auth, (users) => {
@@ -27,10 +28,17 @@ export default function Login() {
   }, []);
 
   const ingresarUser = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, Email, Password);
-      console.log("ingresaste a la cuenta");
+      const resp = await signInWithEmailAndPassword(auth, Email, Password);
+      const carrito = await fetch(
+        `http://localhost:3000/carrito/${resp.user.uid}`,
+        {
+          method: "GET",
+          headers: { "Content-type": "application/json" },
+        }
+      ).then((resp) => resp.json());
+      startCart(carrito);
       navigate("/"); // Redirigir  después de iniciar sesión
     } catch (error) {
       console.log("error al ingresar a la cuenta", error);

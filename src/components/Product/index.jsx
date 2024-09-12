@@ -2,8 +2,13 @@ import React, { useContext } from "react";
 import {CartContext} from "../../context/CartContext";
 import "./Product.css";
 
+
+
 const Product = ({ image, title, description, price}) => {
   const {addToCart} = useContext(CartContext);
+// const [showButton setshowButton]
+
+
 
 const handleClick = () => {
 const product = { image, title, description, price, id: title }; 

@@ -30,7 +30,7 @@ export const CartProvider = ({ children }) => {
     } else {
       newCart = {
         ...cart,
-        id_producto: [...cart.id_producto, product],
+        id_producto: [...cart.id_producto, { ...product, quantity: 1 }],
       };
     }
 
@@ -42,6 +42,8 @@ export const CartProvider = ({ children }) => {
           id_producto: newCart.id_producto,
         }),
       }).then((resp) => resp.json());
+      console.log('Hasta aqui llego');
+      
 
       localStorage.setItem("cart", JSON.stringify(newCart));
       setCart(newCart);
@@ -66,8 +68,8 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    localStorage.setItem("cart", JSON.stringify([]));
-    setCart([]);
+    localStorage.setItem("cart", JSON.stringify({id_producto:[] }));
+    setCart({ id_producto: [] });
   };
 
   return (
