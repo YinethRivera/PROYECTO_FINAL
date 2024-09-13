@@ -3,13 +3,13 @@ import { CartContext } from "./CartContext";
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || { id_producto: [] }
+    JSON.parse(sessionStorage.getItem("cart")) || { id_producto: [] }
   );
 
   console.log(cart);
 
   const startCart = (newCart) => {
-    localStorage.setItem("cart", JSON.stringify(newCart));
+    sessionStorage.setItem("cart", JSON.stringify(newCart));
     setCart(newCart);
   };
 
@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
         }),
       }).then((resp) => resp.json());
 
-      localStorage.setItem("cart", JSON.stringify(newCart));
+      sessionStorage.setItem("cart", JSON.stringify(newCart));
       setCart(newCart);
     } catch (error) {
       console.error("error al actualizar el carrito", error);
@@ -64,7 +64,7 @@ export const CartProvider = ({ children }) => {
         )
         .filter((item) => item.quantity > 0);
       const updatedCart = { ...prevState, id_producto: updatedProducts };
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      sessionStorage.setItem("cart", JSON.stringify(updatedCart));
       console.log(updatedCart);
       return updatedCart;
     });
@@ -72,7 +72,7 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     const emptyCart = { id_producto: [] };
-    localStorage.setItem("cart", JSON.stringify(emptyCart));
+    sessionStorage.setItem("cart", JSON.stringify(emptyCart));
     setCart(emptyCart);
   };
 

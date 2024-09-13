@@ -1,5 +1,5 @@
-import React, { createContext, useState, useEffect} from "react";
+import { createContext } from "react";
 
-
-export const AuthContext = createContext();
+export const AuthContext = createContext(null);
 export const AuthProvider = createContext();
+

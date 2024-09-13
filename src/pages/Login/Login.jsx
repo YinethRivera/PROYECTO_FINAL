@@ -31,8 +31,9 @@ export default function Login() {
     e.preventDefault();
     try {
       const resp = await signInWithEmailAndPassword(auth, Email, Password);
+      console.log(resp.user.uid);
       const carrito = await fetch(
-        `http://localhost:3000/carrito/${resp.user.uid}`,
+        `http://localhost:3000/carrito/uid_usuario/${resp.user.uid}`,
         {
           method: "GET",
           headers: { "Content-type": "application/json" },

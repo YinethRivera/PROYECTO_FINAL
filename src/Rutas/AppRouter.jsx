@@ -3,8 +3,9 @@ import App from "./App";
 import Login from "../pages/Login/Login";
 import Formulario from "../components/Formulario/formulario";
 import Gracias from "../components/Gracias/Gracias";
+import UserProfile from "../components/PerfilUsuario/UserProfile";
 
-export default function Router() {
+export default function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
@@ -12,6 +13,7 @@ export default function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/Formulario" element={<Formulario />} />
         <Route path="/Gracias" element={<Gracias />} />
+        <Route path="/usuarioPerfil" element={<UserProfile />} />
       </Routes>
     </BrowserRouter>
   );

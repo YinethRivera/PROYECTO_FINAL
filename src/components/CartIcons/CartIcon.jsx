@@ -8,12 +8,13 @@ const CartIcon = () => {
   const { cart } = useCart();
   const [showCart, setShowCart] = useState(false);
 
-  console.log({ cart });
+  console.log("cart", cart);
 
-  const totalItems = cart.id_producto?.reduce(
+  const totalItems = cart.id_producto.reduce(
     (total, item) => total + item.quantity,
     0
   );
+  console.log(totalItems);
 
   const cerrarCarrito = () => {
     setShowCart(!showCart);
