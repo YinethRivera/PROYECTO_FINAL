@@ -9,6 +9,8 @@ import { auth } from "../../firebase/credenciales";
 import { CartContext } from "../../context/Cart/CartContext";
 import { AuthContext } from "../../context/Auth/AuthContext";
 
+
+
 function Header() {
   const { clearCart } = useContext(CartContext);
   const { user, setUser } = useContext(AuthContext) || {};
@@ -28,7 +30,7 @@ function Header() {
     }
   };
 
-  console.log(user);
+  console.log(user)
 
   const handleUserProfile = () => {
     navigate("/userprofile");
@@ -47,6 +49,10 @@ function Header() {
   const ira = () => {
     navigate("/login");
   };
+  const perfil = () => {
+    navigate("/usuarioPerfil");
+  };
+  
   return (
     <div className="contenido">
       <header className="header">
@@ -88,9 +94,9 @@ function Header() {
             <button onClick={ira}>Ingresar</button>
           )}
         </div>
-        {/* <button onClick={ira}>Ingresar</button>
 
-        <button onClick={CerrarSesion}>Cerrar Sesion </button> */}
+        <button onClick={perfil}>mi perfil </button>
+        <button onClick={handleSignOut}>cerrar sesion </button>
       </header>
       <Outlet />
     </div>

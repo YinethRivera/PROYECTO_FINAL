@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import "./userProfile.css";
 import { AuthContext } from "../../context/Auth/AuthContext";
 
+
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
 
+console.log(user)
   const [userData, setUserData] = useState({
     nombreCompleto: "",
     correoElectronico: "",
@@ -145,7 +147,7 @@ const UserProfile = () => {
             <strong>Nombre Completo:</strong> {userData.nombreCompleto}
           </p>
           <p>
-            <strong>Correo Electrónico:</strong> {user.email}
+            <strong>Correo Electrónico:</strong> {user}
           </p>
         </div>
       )}
