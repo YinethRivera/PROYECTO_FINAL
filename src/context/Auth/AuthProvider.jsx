@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { AuthContext } from "./AuthContext";
+import getAuthSession from "../../utils/get-auth-session";
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState();
+const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(getAuthSession() ?? null);
+
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       {children}
@@ -10,4 +12,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export default userProvider;
+export default AuthProvider;
