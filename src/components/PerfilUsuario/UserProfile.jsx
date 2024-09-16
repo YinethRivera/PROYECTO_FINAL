@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import "./userProfile.css";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/Auth/AuthContext";
 
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
-  
 
   const [userData, setUserData] = useState({
     nombreCompleto: "",
@@ -152,7 +151,6 @@ const UserProfile = () => {
       )}
     </div>
   );
-}
+};
 
-
-export default UserProfile
+export default UserProfile;

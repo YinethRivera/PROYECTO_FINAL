@@ -3,7 +3,7 @@ import "./Login.css";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/Cart/CartContext";
 
 export default function Login() {
   const [Email, setEmail] = useState("");

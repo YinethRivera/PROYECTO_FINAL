@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import useCart from "../../context/CartProvider";
+import useCart from "../../context/Cart/CartProvider";
 
 const RegistroForm = () => {
   const { startCart } = useCart();
@@ -46,7 +46,8 @@ const RegistroForm = () => {
   };
 
   const RegisterUser = async () => {
-    const { correoElectronico, contraseña } = formData;
+    const { correoElectronico, contraseña, nombreCompleto, telefono } =
+      formData;
 
     try {
       const UsuarioCredenciales = await createUserWithEmailAndPassword(
@@ -62,6 +63,8 @@ const RegistroForm = () => {
         body: JSON.stringify({
           uid_usuario: User.uid,
           correo_electronico: correoElectronico,
+          nombre_completo: nombreCompleto,
+          telefono: telefono,
         }),
       });
 

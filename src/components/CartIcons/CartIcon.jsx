@@ -1,20 +1,17 @@
 import React, { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/Cart/CartContext";
 import Carrito from "../Carrito/Carrito";
 import styles from "./CartIcon.module.css";
-import useCart from "../../context/CartProvider";
+import useCart from "../../context/Cart/CartProvider";
 
 const CartIcon = () => {
   const { cart } = useCart();
   const [showCart, setShowCart] = useState(false);
 
-  console.log("cart", cart);
-
   const totalItems = cart.id_producto.reduce(
     (total, item) => total + item.quantity,
     0
   );
-  console.log(totalItems);
 
   const cerrarCarrito = () => {
     setShowCart(!showCart);

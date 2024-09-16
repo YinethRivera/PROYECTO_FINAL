@@ -1,21 +1,16 @@
 import React, { useContext } from "react";
-import {CartContext} from "../../context/CartContext";
+import { CartContext } from "../../context/Cart/CartContext";
 import "./Product.css";
 
+const Product = ({ image, title, description, price }) => {
+  const { addToCart } = useContext(CartContext);
+  // const [showButton setshowButton]
 
-
-const Product = ({ image, title, description, price}) => {
-  const {addToCart} = useContext(CartContext);
-// const [showButton setshowButton]
-
-
-
-const handleClick = () => {
-const product = { image, title, description, price, id: title }; 
- addToCart(product);
-
+  const handleClick = () => {
+    const product = { image, title, description, price, id: title };
+    addToCart(product);
   };
-return (
+  return (
     <div className="product-card">
       <div className="portada">
         <img src={image} alt={title} className="product-image" />
@@ -32,7 +27,6 @@ return (
             ${(price + price / 2).toFixed(2)}
           </span>
         </p>
-
       </div>
       <div className="div_btn-comprar">
         <button onClick={handleClick} className="b-comprar">
@@ -44,4 +38,3 @@ return (
 };
 
 export default Product;
-

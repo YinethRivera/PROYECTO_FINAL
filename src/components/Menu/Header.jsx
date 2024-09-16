@@ -6,25 +6,21 @@ import CartIcon from "../CartIcons/CartIcon";
 import { Outlet, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
-import { CartContext } from "../../context/CartContext";
-
-
+import { CartContext } from "../../context/Cart/CartContext";
 
 function Header() {
-const {clearCart} = useContext(CartContext)
-
+  const { clearCart } = useContext(CartContext);
 
   const CerrarSesion = async () => {
     try {
       await signOut(auth);
-      clearCart(); 
+      clearCart();
       console.log("se cerro la sesion");
     } catch (error) {
       console.log("No se cerro la sesion");
     }
   };
-  
-  
+
   const navigate = useNavigate();
   const ira = () => {
     navigate("/login");
@@ -35,22 +31,20 @@ const {clearCart} = useContext(CartContext)
         <div className="container">
           <img className="logo" src={Img} />
           <nav className="nav">
-            <Link to="electronics" smooth={true} duration={200}>
+            <Link to="electronics" smooth={true} duration={300}>
               Tecnologia
             </Link>
-            <Link to="jewelery" smooth={true} duration={200}>
+            <Link to="jewelery" smooth={true} duration={300}>
               Joyería
             </Link>
-            <Link to="mensclothing" smooth={true} duration={200}>
+            <Link to="mensclothing" smooth={true} duration={300}>
               Ropa de hombre
             </Link>
-            <Link to="womensclothing" smooth={true} duration={200}>
+            <Link to="womensclothing" smooth={true} duration={300}>
               Ropa de mujer
             </Link>
           </nav>
         </div>
-
-
 
         <div className="carrito">
           <CartIcon />

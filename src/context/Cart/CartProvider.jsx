@@ -6,12 +6,12 @@ export const CartProvider = ({ children }) => {
     JSON.parse(sessionStorage.getItem("cart")) || { id_producto: [] }
   );
 
-  console.log(cart);
-
   const startCart = (newCart) => {
     sessionStorage.setItem("cart", JSON.stringify(newCart));
     setCart(newCart);
   };
+
+  console.log("cart provider", cart);
 
   const addToCart = async (product) => {
     let newCart = {};
@@ -37,9 +37,8 @@ export const CartProvider = ({ children }) => {
         ],
       };
     }
-
     try {
-      await fetch(`http://localhost:3000/carrito/${cart.id_carrito}`, {
+      await fetch(`http://localhost:3000/carrito/id/${cart.id_carrito}`, {
         method: "PUT",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({

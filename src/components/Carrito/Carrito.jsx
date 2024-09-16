@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/Cart/CartContext";
 import { useNavigate } from "react-router-dom";
 import "./Carrito.css";
 import { onAuthStateChanged } from "firebase/auth";

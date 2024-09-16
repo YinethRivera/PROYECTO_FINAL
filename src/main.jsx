@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { CartProvider } from "./context/CartProvider";
+import { CartProvider } from "./context/Cart/CartProvider";
 import "./App.css";
 import AppRouter from "./Rutas/AppRouter";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "./context/Auth/AuthContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
