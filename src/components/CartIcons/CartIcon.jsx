@@ -8,7 +8,7 @@ const CartIcon = () => {
   const { cart } = useCart();
   const [showCart, setShowCart] = useState(false);
 
-  const totalItems = cart.id_producto.reduce(
+  const totalItems = cart?.id_producto.reduce(
     (total, item) => total + item.quantity,
     0
   );

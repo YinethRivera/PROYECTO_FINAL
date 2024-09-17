@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Menu from "../components/Menu/Header";
 import Product from "../components/Product";
 import { useFetch } from "../hook/useGetProducts.js";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase/credenciales.js";
 
 export default function App() {
   const { data: electronics } = useFetch(
@@ -19,18 +21,6 @@ export default function App() {
   const { data: womensClothing } = useFetch(
     "https://fakestoreapi.com/products/category/women's%20clothing"
   );
-  useEffect(() => {
-    const d = async () => {
-      let data;
-      await fetch(
-        "http://localhost:3000/usuarios/uid/"
-      )
-        .then((res) => res.json())
-        .then((res) => console.log(res));
-      return data;
-    };
-    d()
-  }, []);
 
   return (
     <>

@@ -4,53 +4,31 @@ import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/Cart/CartContext";
+import { AuthContext } from "../../context/Auth/AuthContext";
 
 export default function Login() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const [users, setUsers] = useState(null);
+  const { startSession, user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const { startCart } = useContext(CartContext);
-
   const handleRedirectApp = () => {
     navigate("/formulario");
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (users) => {
-      if (users) {
-        setUsers(users);
-        console.log("usuario encontrado");
-      } else {
-        console.log("usuario no encontrado");
-      }
-    });
-  }, []);
+    if (user) navigate("/");
+  }, [user]);
 
-  const ingresarUser = async (e) => {
+  const handlerLogin = (e) => {
     e.preventDefault();
-    try {
-      const resp = await signInWithEmailAndPassword(auth, Email, Password);
-      console.log(resp.user.uid);
-      const carrito = await fetch(
-        `http://localhost:3000/carrito/uid_usuario/${resp.user.uid}`,
-        {
-          method: "GET",
-          headers: { "Content-type": "application/json" },
-        }
-      ).then((resp) => resp.json());
-      startCart(carrito);
-      navigate("/"); // Redirigir  después de iniciar sesión
-    } catch (error) {
-      console.log("error al ingresar a la cuenta", error);
-    }
+    startSession(Email, Password);
   };
 
   return (
     <div className="login-container">
       <div className="login-form">
         <h2 className="welcome-message">Bienvenido</h2>
-        <form onSubmit={ingresarUser}>
+        <form onSubmit={handlerLogin}>
           <div className="input-group">
             <label htmlFor="usuario">Usuario: </label>
             <input

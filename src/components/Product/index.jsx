@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/Cart/CartContext";
 import "./Product.css";
 
-const Product = ({ image, title, description, price }) => {
+const Product = ({ id, image, title, description, price }) => {
   const { addToCart } = useContext(CartContext);
   // const [showButton setshowButton]
 
   const handleClick = () => {
-    const product = { image, title, description, price, id: title };
+    const product = { id, image, title, description, price };
     addToCart(product);
   };
   return (

@@ -1,7 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
+import { AuthContext } from "../Auth/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const CartProvider = ({ children }) => {
+  const { user } = useContext(AuthContext);
+
   const [cart, setCart] = useState(
     JSON.parse(sessionStorage.getItem("cart")) || { id_producto: [] }
   );
@@ -10,8 +14,6 @@ export const CartProvider = ({ children }) => {
     sessionStorage.setItem("cart", JSON.stringify(newCart));
     setCart(newCart);
   };
-
-  console.log("cart provider", cart);
 
   const addToCart = async (product) => {
     let newCart = {};
@@ -74,6 +76,26 @@ export const CartProvider = ({ children }) => {
     sessionStorage.setItem("cart", JSON.stringify(emptyCart));
     setCart(emptyCart);
   };
+
+  const initializeCart = async () => {
+    try {
+      const carrito = await fetch(
+        `http://localhost:3000/carrito/uid_usuario/${user.uid}`,
+        {
+          method: "GET",
+          headers: { "Content-type": "application/json" },
+        }
+      ).then((resp) => resp.json());
+      startCart(carrito);
+    } catch (error) {
+      console.log("error al ingresar a la cuenta", error);
+    }
+  };
+
+  useEffect(() => {
+    if (!user) return;
+    initializeCart();
+  }, [user]);
 
   return (
     <CartContext.Provider

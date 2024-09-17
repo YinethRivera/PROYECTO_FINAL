@@ -67,7 +67,15 @@ const RegistroForm = () => {
           telefono: telefono,
         }),
       });
-
+      sessionStorage.setItem(
+        "USER",
+        JSON.stringify({
+          uid_usuario: User.uid,
+          correo_electronico: correoElectronico,
+          nombre_completo: nombreCompleto,
+          telefono: telefono,
+        })
+      );
       const resp = await fetch("http://localhost:3000/carrito", {
         method: "POST",
         headers: { "Content-type": "application/json" },
@@ -86,6 +94,7 @@ const RegistroForm = () => {
         contraseña: "",
       });
 
+      // window.location.reload();
       navigate("/"); // Redirige
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {

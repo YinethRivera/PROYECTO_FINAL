@@ -1,17 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import "./userProfile.css";
 import { AuthContext } from "../../context/Auth/AuthContext";
-
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/credenciales";
 
 const UserProfile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext) || {};
 
-console.log(user)
+  // window.reload();
+  console.log(user);
   const [userData, setUserData] = useState({
     nombreCompleto: "",
     correoElectronico: "",
   });
   const [editMode, setEditMode] = useState(false);
+
   const [newData, setNewData] = useState({
     nombreCompleto: "",
     correoElectronico: "",
@@ -60,7 +63,6 @@ console.log(user)
       console.log("Error:", error);
     }
   };
-
   const deleteUser = async (userId) => {
     try {
       const response = await fetch(`/api/usuarios/${userId}`, {
@@ -76,12 +78,10 @@ console.log(user)
       console.log("Error:", error);
     }
   };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewData({ ...newData, [name]: value });
   };
-
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -102,7 +102,16 @@ console.log(user)
       console.log("Error:", error);
     }
   };
-
+  useEffect(() => {
+    onAuthStateChanged(auth, (users) => {
+      if (users) {
+        console.log("usuario encontrado", users);
+      } else {
+        console.log("usuario no encontrado");
+      }
+    });
+  }, []);
+  if (!user) return <h1>no hay usuario</h1>;
   return (
     <div className="profile-container">
       <h2>Perfil del Usuario</h2>
@@ -144,10 +153,17 @@ console.log(user)
       ) : (
         <div className="profile-info">
           <p>
-            <strong>Nombre Completo:</strong> {userData.nombreCompleto}
+            <strong>Nombre Completo:</strong> {user.nombre_completo}
           </p>
           <p>
-            <strong>Correo Electrónico:</strong> {user}
+            <strong>Correo Electrónico:</strong> {user.correo_electronico}
+          </p>
+          <p>
+            <strong>telefono:</strong> {user.telefono}
+          </p>
+          <p>
+            {/* {console.log(user.uid_usuario.slice(4))} */}
+            <strong>uid_usuario:</strong> {user.uid_usuario.slice(4)}
           </p>
         </div>
       )}

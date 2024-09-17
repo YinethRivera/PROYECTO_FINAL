@@ -9,19 +9,19 @@ import { auth } from "../../firebase/credenciales";
 import { CartContext } from "../../context/Cart/CartContext";
 import { AuthContext } from "../../context/Auth/AuthContext";
 
-
-
 function Header() {
   const { clearCart } = useContext(CartContext);
   const { user, setUser } = useContext(AuthContext) || {};
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const navigate = useNavigate();
 
   const CerrarSesion = async () => {
     try {
       await signOut(auth);
       setUser(null);
-      sessionStorage.removeItem("AUTH");
+      sessionStorage.removeItem("USER");
       console.log("se cerro la sesion");
       clearCart();
       console.log("se cerro la sesion");
@@ -30,7 +30,7 @@ function Header() {
     }
   };
 
-  console.log(user)
+  console.log(user);
 
   const handleUserProfile = () => {
     navigate("/userprofile");
@@ -52,7 +52,6 @@ function Header() {
   const perfil = () => {
     navigate("/usuarioPerfil");
   };
-  
   return (
     <div className="contenido">
       <header className="header">
@@ -83,20 +82,33 @@ function Header() {
               <button className="dropdown-toggle" onClick={toggleDropdown}>
                 {user.email}
               </button>
-              {dropdownOpen && (
+              {dropdownOpen ? (
                 <div className="dropdown-menu">
-                  <button onClick={handleUserProfile}>Perfil</button>
-                  <button onClick={handleSignOut}>Cerrar Sesión</button>
+                  <>
+                    <button onClick={handleSignOut}>Cerrar Sesión</button>
+                  </>
                 </div>
+              ) : (
+                <>
+                  {!user ? (
+                    <button onClick={ira}>Ingresar</button>
+                  ) : (
+                    <button onClick={handleSignOut}>Cerrar Sesión</button>
+                  )}
+                </>
               )}
             </div>
           ) : (
-            <button onClick={ira}>Ingresar</button>
+            <>
+              {!user ? (
+                <button onClick={ira}>Ingresar</button>
+              ) : (
+                <button onClick={handleSignOut}>Cerrar Sesión</button>
+              )}
+            </>
           )}
         </div>
-
         <button onClick={perfil}>mi perfil </button>
-        <button onClick={handleSignOut}>cerrar sesion </button>
       </header>
       <Outlet />
     </div>
