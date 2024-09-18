@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
 import Login from "../pages/Login/Login";
 import Formulario from "../components/Formulario/formulario";
-import Gracias from "../components/Gracias/Gracias";
+import Gracias from "../components/Gracias/gracias";
 import UserProfile from "../components/PerfilUsuario/UserProfile";
 
 export default function AppRouter() {

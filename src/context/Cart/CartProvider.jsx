@@ -69,7 +69,7 @@ export const CartProvider = ({ children }) => {
       console.log(updatedCart);
       return updatedCart;
     });
-  };
+  };//put
 
   const clearCart = () => {
     const emptyCart = { id_producto: [] };
