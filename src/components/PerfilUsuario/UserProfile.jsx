@@ -3,9 +3,15 @@ import "./userProfile.css";
 import { AuthContext } from "../../context/Auth/AuthContext";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase/credenciales";
+import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
   const { user, setUser } = useContext(AuthContext) || {};
+  const navigate = useNavigate();
+
+  const principal = () => {
+    navigate("/");
+  };
 
   // window.reload();
   console.log(user);
@@ -165,6 +171,8 @@ const UserProfile = () => {
             {/* {console.log(user.uid_usuario.slice(4))} */}
             <strong>uid_usuario:</strong> {user.uid_usuario.slice(4)}
           </p>
+
+          <button onClick={principal}>volver a la tienda</button>
         </div>
       )}
     </div>
