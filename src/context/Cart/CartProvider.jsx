@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 import { AuthContext } from "../Auth/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 export const CartProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
@@ -17,11 +16,11 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = async (product) => {
     let newCart = {};
-    const existingProdut = cart.id_producto?.find(
+    const existingProduct = cart.id_producto?.find(
       (item) => item.id === product.id
     );
 
-    if (existingProdut) {
+    if (existingProduct) {
       newCart = {
         ...cart,
         id_producto: cart.id_producto?.map((item) =>
@@ -51,11 +50,11 @@ export const CartProvider = ({ children }) => {
       sessionStorage.setItem("cart", JSON.stringify(newCart));
       setCart(newCart);
     } catch (error) {
-      console.error("error al actualizar el carrito", error);
+      console.error("Error al actualizar el carrito", error);
     }
   };
 
-  const removeFromCart = (product) => {
+  const removeFromCart = async (product) => {
     setCart((prevState) => {
       const updatedProducts = prevState.id_producto
         ?.map((item) =>
@@ -65,14 +64,39 @@ export const CartProvider = ({ children }) => {
         )
         .filter((item) => item.quantity > 0);
       const updatedCart = { ...prevState, id_producto: updatedProducts };
+
+      // Actualizar la base de datos
+      fetch(`http://localhost:3000/carrito/id/${prevState.id_carrito}`, {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          id_producto: updatedCart.id_producto,
+        }),
+      })
+        .then((resp) => resp.json())
+        .catch((error) =>
+          console.error("Error al actualizar el carrito", error)
+        );
+
       sessionStorage.setItem("cart", JSON.stringify(updatedCart));
       console.log(updatedCart);
       return updatedCart;
     });
-  };//put
+  };
 
-  const clearCart = () => {
+  const clearCart = async () => {
     const emptyCart = { id_producto: [] };
+
+    try {
+      await fetch(`http://localhost:3000/carrito/id/${cart.id_carrito}`, {
+        method: "PUT",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(emptyCart),
+      }).then((resp) => resp.json());
+    } catch (error) {
+      console.error("Error al vaciar el carrito", error);
+    }
+
     sessionStorage.setItem("cart", JSON.stringify(emptyCart));
     setCart(emptyCart);
   };
@@ -88,7 +112,7 @@ export const CartProvider = ({ children }) => {
       ).then((resp) => resp.json());
       startCart(carrito);
     } catch (error) {
-      console.log("error al ingresar a la cuenta", error);
+      console.log("Error al ingresar a la cuenta", error);
     }
   };
 
