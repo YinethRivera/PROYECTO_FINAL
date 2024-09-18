@@ -23,7 +23,9 @@ function Header() {
       setUser(null);
       sessionStorage.removeItem("USER");
       console.log("se cerro la sesion");
-      clearCart();
+      sessionStorage.setItem("cart", JSON.stringify({ id_producto: [] }));
+      location.reload();
+      // clearCart();
       console.log("se cerro la sesion");
     } catch (error) {
       console.log("No se cerro la sesion");
@@ -31,11 +33,6 @@ function Header() {
   };
 
   console.log(user);
-
-  const handleUserProfile = () => {
-    navigate("/userprofile");
-    setDropdownOpen(false);
-  };
 
   const handleSignOut = () => {
     CerrarSesion();
