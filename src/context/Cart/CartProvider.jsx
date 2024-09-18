@@ -9,17 +9,19 @@ export const CartProvider = ({ children }) => {
     JSON.parse(sessionStorage.getItem("cart")) || { id_producto: [] }
   );
 
+  //inicia el carrito
   const startCart = (newCart) => {
     sessionStorage.setItem("cart", JSON.stringify(newCart));
     setCart(newCart);
   };
 
+  //agrega y revisa si ya está el producto
   const addToCart = async (product) => {
     let newCart = {};
     const existingProduct = cart.id_producto?.find(
       (item) => item.id === product.id
     );
-
+    //si ya está aumenta
     if (existingProduct) {
       newCart = {
         ...cart,
@@ -38,6 +40,8 @@ export const CartProvider = ({ children }) => {
         ],
       };
     }
+
+    //envia los cambios, carrito a la base pgAdmin
     try {
       await fetch(`http://localhost:3000/carrito/id/${cart.id_carrito}`, {
         method: "PUT",
@@ -53,6 +57,8 @@ export const CartProvider = ({ children }) => {
       console.error("Error al actualizar el carrito", error);
     }
   };
+
+  //quita
 
   const removeFromCart = async (product) => {
     setCart((prevState) => {
@@ -84,6 +90,9 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  //Vacía el carrito, lo actualiza en pgAdmin
+  // y almacena la sesión
+
   const clearCart = async () => {
     const emptyCart = { id_producto: [] };
 
@@ -101,6 +110,7 @@ export const CartProvider = ({ children }) => {
     setCart(emptyCart);
   };
 
+  //Obtiene el carrito del servidor 
   const initializeCart = async () => {
     try {
       const carrito = await fetch(
